@@ -1,0 +1,7 @@
+{
+  "name": "tucan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
