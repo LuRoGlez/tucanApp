@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Restaurant</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar animated color="primary"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row *ngFor="let c of [1,1]">
+    <ion-card button="true" href="/offer">
+      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-card-header>
+        <ion-card-title>Nombre Comercio</ion-card-title>
+        <ion-card-subtitle>Descripcion oferta</ion-card-subtitle>
+        <ion-card-subtitle>Horario</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </ion-row>
+</ion-content>
