@@ -3,25 +3,30 @@
 <app-search></app-search>
 
 <ion-content>
+  <ion-grid>
   <ion-row *ngFor="let c of [1,1]">
-    <ion-card button="true" href="/offer" class="card">
-      <ion-card-header>
+    <ion-card button="true" href="/offer" class="cardcontent">
+      <ion-card-header class="nopadding">
+        <ion-grid>
         <ion-row>
-          <ion-col col-3>
+          <ion-col size="3">
             <ion-img src="/assets/imgs/Lupe.jfif">
           </ion-img></ion-col>
-          <ion-col col-3>
+          <ion-col size="7">
             <ion-card-subtitle color="dark" class="Titulo">La Lupe</ion-card-subtitle>
             <ion-card-subtitle>Degustación de caracoles</ion-card-subtitle>
           </ion-col>
-          <ion-col col-3>
+          <ion-col size="2" class="third-col">
+            <p></p>
             <ion-card-subtitle>13:00</ion-card-subtitle>
             <ion-card-subtitle>22:30</ion-card-subtitle>
             <ion-icon name="tv-outline" *ngIf="SportLive"></ion-icon>
             <ion-icon name="musical-notes-outline" *ngIf="LiveMusic"></ion-icon>
           </ion-col>
         </ion-row>
+      </ion-grid>
       </ion-card-header>
     </ion-card>
   </ion-row>
+</ion-grid>
 </ion-content>

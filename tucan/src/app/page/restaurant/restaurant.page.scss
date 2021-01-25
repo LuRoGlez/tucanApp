@@ -4,14 +4,19 @@
     font-weight: 700;
 }
 
-.card{
-    height: 125px;
-    padding: 2px;
+.cardcontent{
+    padding: 0px;
     margin: 2px;
     
 }
 
-.card row{
-    margin: 2px;
-    padding: 2px;
+.nopadding{
+    padding: 0%;
+    margin: 0%;
 }
+
+.third-col{
+    text-align: right;
+}
+
+
