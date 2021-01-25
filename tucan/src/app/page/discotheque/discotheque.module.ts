@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DiscothequePageRoutingModule } from './discotheque-routing.module';
 
 import { DiscothequePage } from './discotheque.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DiscothequePageRoutingModule
+    DiscothequePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [DiscothequePage]
 })

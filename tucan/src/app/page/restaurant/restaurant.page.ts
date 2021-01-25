@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantPage implements OnInit {
 
+  SportLive = false;
+  LiveMusic = true;
+  buscador = true;
+
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

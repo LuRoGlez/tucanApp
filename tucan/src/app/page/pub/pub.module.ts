@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PubPageRoutingModule } from './pub-routing.module';
 
 import { PubPage } from './pub.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PubPageRoutingModule
+    PubPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [PubPage]
 })
