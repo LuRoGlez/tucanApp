@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PubPage implements OnInit {
 
+  SportLive = true;
+  LiveMusic = false;
+
   constructor() { }
 
   ngOnInit() {
