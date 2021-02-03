@@ -68,6 +68,15 @@ h2{
   
 }
 
-.iWillGo:hover{
-  color: #24b34b;
+#iWillGo:checked + label{
+  color: #01641c;
 }
+
+.noShow{
+    display:none
+}
+
+#iWillGo:hover + label{
+  color: none;
+}
+

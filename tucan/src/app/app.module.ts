@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { ComponentsModule } from './components/components.module';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
