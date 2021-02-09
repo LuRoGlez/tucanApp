@@ -22,6 +22,14 @@ const routes: Routes = [
     path: 'filters',
     loadChildren: () => import('./page/filters/filters.module').then( m => m.FiltersPageModule)
   },
+  {
+    path: 'myoferts',
+    loadChildren: () => import('./page/myoferts/myoferts.module').then( m => m.MyofertsPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./page/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 
 
 
