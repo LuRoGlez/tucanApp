@@ -1,3 +1,4 @@
+import { MenuComponent } from './menu/menu.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
@@ -7,8 +8,9 @@ import { HeaderOfferComponent } from './header-offer/header-offer.component';
 
 
 
+
 @NgModule({
-  declarations: [HeaderComponent, SearchComponent, HeaderOfferComponent],
+  declarations: [HeaderComponent, SearchComponent, HeaderOfferComponent, MenuComponent],
   imports: [
     CommonModule,
     IonicModule
@@ -16,7 +18,8 @@ import { HeaderOfferComponent } from './header-offer/header-offer.component';
   exports: [
   HeaderComponent,
   SearchComponent,
-  HeaderOfferComponent
+  HeaderOfferComponent,
+  MenuComponent
  ]
 })
 export class ComponentsModule { }
