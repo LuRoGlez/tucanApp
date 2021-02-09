@@ -10,7 +10,7 @@ export class DiscothequePage implements OnInit {
   
   offers: any;
   token: any;
-  enterprise: any
+  offersDicotheque: any;
 
   constructor() { 
     
@@ -36,8 +36,17 @@ export class DiscothequePage implements OnInit {
   // obtenerUnaEmpresa(id: any) {
   //   this.restService.getOneEnterprise(this.token, id)
   //     .then(data => {
-  //       this.enterprise = data;
+  //       return data;
   //     });
+  // }
+
+  // obtenerOfertasDiscoteca(){
+  //   for(let i = 0; i<this.offers.length;i++){
+  //     let enterprise = this.obtenerUnaEmpresa(this.offers[i].enterpriseId);
+  //     if (enterprise.type == "Disco"){
+  //       this.offersDicotheque.push(this.offers[i]);
+  //     }
+  //   }
   // }
 
 }

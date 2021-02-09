@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 // import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -11,13 +12,21 @@ export class OfferPage implements OnInit {
   @Input() offerId: any;
   token: any;
   offer: any;
-  enterprise: any
+  enterprise: any;
 
-  constructor() {
+  constructor(public modalCtrl: ModalController) {
     
   }
 
   ngOnInit() {
+  }
+
+  dismiss() {
+    // using the injected ModalController this page
+    // can "dismiss" itself and optionally pass back data
+    this.modalCtrl.dismiss({
+      'dismissed': true
+    });
   }
 
   // obtenerUnaOferta(id: any) {
