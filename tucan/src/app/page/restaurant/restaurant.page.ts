@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+// import { RestService } from '../../services/rest.service';
 
 @Component({
   selector: 'app-restaurant',
@@ -7,14 +8,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantPage implements OnInit {
 
-  SportLive = false;
-  LiveMusic = true;
+  offers: any;
+  token: any;
+  enterprise: any
+
   buscador = true;
 
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit() {
 
   }
+
+  // hacerLogin() {
+  //   this.restService.login()
+  //     .then(data => {
+  //       this.token = data;
+  //     });
+  // }
+
+  // obtenerOfertas() {
+  //   this.restService.getOffers(this.token)
+  //     .then(data => {
+  //       this.offers = data;
+  //     });
+  // }
+
+  // obtenerUnaEmpresa(id: any) {
+  //   this.restService.getOneEnterprise(this.token, id)
+  //     .then(data => {
+  //       this.enterprise = data;
+  //     });
+  // }
+
+  
+
 
 }

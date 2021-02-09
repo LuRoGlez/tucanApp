@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { RestService } from '../../services/rest.service';
 
 @Component({
   selector: 'app-pub',
@@ -7,12 +8,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PubPage implements OnInit {
 
-  SportLive = true;
-  LiveMusic = false;
+  offers: any;
+  token: any;
+  enterprise: any
 
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit() {
   }
+
+  // hacerLogin() {
+  //   this.restService.login()
+  //     .then(data => {
+  //       this.token = data;
+  //     });
+  // }
+
+  // obtenerOfertas() {
+  //   this.restService.getOffers(this.token)
+  //     .then(data => {
+  //       this.offers = data;
+  //     });
+  // }
+
+  // obtenerUnaEmpresa(id: any) {
+  //   this.restService.getOneEnterprise(this.token, id)
+  //     .then(data => {
+  //       this.enterprise = data;
+  //     });
+  // }
 
 }
