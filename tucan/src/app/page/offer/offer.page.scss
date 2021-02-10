@@ -64,3 +64,16 @@ h2{
   margin-top: 15px;
   margin-bottom: 15px;
 }
+.head{
+  display: flex;
+  font-size: 28px;
+}
+
+.back{
+  margin-left: 5px;
+}
+
+ion-img::part(image) {
+  border-radius: 5%;
+  
+}
