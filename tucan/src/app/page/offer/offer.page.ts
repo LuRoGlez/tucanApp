@@ -10,6 +10,7 @@ import { ModalController } from '@ionic/angular';
 export class OfferPage implements OnInit {
 
   @Input() offerId: any;
+  @Input() enterpriseId: any;
   token: any;
   offer: any;
   enterprise: any;

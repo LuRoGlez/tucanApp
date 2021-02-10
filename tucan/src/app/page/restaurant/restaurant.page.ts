@@ -14,6 +14,9 @@ export class RestaurantPage implements OnInit {
   offersRestaurant:any;
   token: any;
 
+  offerIdRestaurant: any;
+  enterpriseIdRestaurant: any;
+
   buscador = true;
 
   constructor(public modalController: ModalController) {
@@ -29,9 +32,8 @@ export class RestaurantPage implements OnInit {
       component: OfferPage,
       cssClass: 'my-custom-class'
       // componentProps: {
-      //   'firstName': 'Douglas',
-      //   'lastName': 'Adams',
-      //   'middleInitial': 'N'
+      //   'offerId': offerIdRestaurant,
+      //   'enterpriseId': enterpriseIdRestaurant
       // }
     });
     return await modal.present();
