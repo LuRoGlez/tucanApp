@@ -4,7 +4,7 @@
 <ion-content>
   <ion-grid>
   <ion-row *ngFor="let c of [1,1]">
-    <ion-card button="true" href="/offer" class="cardcontent">
+    <ion-card button="true" (click)="presentModal()" class="cardcontent">
       <ion-card-header class="nopadding">
         <ion-grid>
         <ion-row>
