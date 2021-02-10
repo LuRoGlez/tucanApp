@@ -48,6 +48,16 @@ h2{
     display:none
 }
 
+#iWillGo:hover + label{
+  color: none;
+}
+
+.head
+{
+    --background: #24b34b;
+    color:white;
+}
+
 
 .stars{
   height: 35px;

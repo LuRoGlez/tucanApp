@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 // import { RestService } from '../../services/rest.service';
+import { OfferPage } from '../offer/offer.page';
 
 @Component({
   selector: 'app-restaurant',
@@ -9,17 +11,32 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RestaurantPage implements OnInit {
 
   offers: any;
+  offersRestaurant:any;
   token: any;
-  enterprise: any
+
+  offerIdRestaurant: any;
+  enterpriseIdRestaurant: any;
 
   buscador = true;
 
-  constructor() {
+  constructor(public modalController: ModalController) {
     
   }
 
   ngOnInit() {
 
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: OfferPage,
+      cssClass: 'my-custom-class'
+      // componentProps: {
+      //   'offerId': offerIdRestaurant,
+      //   'enterpriseId': enterpriseIdRestaurant
+      // }
+    });
+    return await modal.present();
   }
 
   // hacerLogin() {
@@ -39,11 +56,18 @@ export class RestaurantPage implements OnInit {
   // obtenerUnaEmpresa(id: any) {
   //   this.restService.getOneEnterprise(this.token, id)
   //     .then(data => {
-  //       this.enterprise = data;
+  //       return data;
   //     });
   // }
 
-  
+    // obtenerOfertasRestaurante(){
+    //   for(let i = 0; i<this.offers.length;i++){
+    //     let enterprise = this.obtenerUnaEmpresa(this.offers[i].enterpriseId);
+    //     if (enterprise.type == "Restaurant"){
+    //       this.offersRestaurant.push(this.offers[i]);
+    //     }
+    //   }
+    // }
 
 
 }
