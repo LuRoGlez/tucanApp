@@ -1,5 +1,41 @@
 <app-header-offer></app-header-offer>
 
-<ion-content>
+<ion-content *ngIf="vip"> 
+    <section>
+        <form>
+            <input type="text" name="nombre" size="10" placeholder="Nombre de la empresa">
+            <input type="text" name="direccion" size="10" placeholder="Dirección">
+            <input type="text" name="state" size="10" placeholder="provincia">
+            <input type="text" name="localidad" size="10" placeholder="Localidad">
+            <legend><p>Tipo de negocio</p>
+                <p>
+              <input type="radio" name="type" value="h"> Restaurante
+              <input type="radio" name="type" value="m"> Cafe & Copas
+              <input type="radio" name="type" value="m"> Discoteca
+            </p>
+            </legend>
 
+            <select name="subtipo" aria-placeholder="Selecciona una categoría" class="select">
+
+                <option>Restaurante Chino</option>
+                
+                <option>Pizzería</option>
+                
+                <option>tralala</option>
+                
+                </select>
+            
+            <p>
+              <input type="submit" value="Registrar">
+            </p>
+            
+          </form>
+    </section>
+</ion-content>
+<ion-content *ngIf="novip">
+    <section>
+        <p>¿Tienes un negocio y aun no te anuncias en TUCAN?</p>
+        <span button="true" (click)="cambiarVip()">¡HAZTE VIP!</span>
+        <p class="parrafo">Súbete a nuestra rama y únete a la comunidad de las ofertas en tiempo real</p>
+    </section>
 </ion-content>
