@@ -1,0 +1,18 @@
+
+<ion-content>
+  <section class="ppal">
+  <ion-img alt="logo" src="/assets/imgs/logotucan.png"></ion-img>
+  <div class="loggin" *ngIf="registrado">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Contraseña">
+    <span>INICIAR SESION</span>
+    <p button="true" (click)=registrarse()>Registrarse</p>
+  </div>
+  <div class="loggin" *ngIf="noRegistrado">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Contraseña">
+    <input type="password" name="password" placeholder="Confirmar Contraseña">
+    <span button="true" (click)=crearCuenta()>CREAR CUENTA</span>
+  </div>
+</section>
+</ion-content>
