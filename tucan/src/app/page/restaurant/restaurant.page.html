@@ -4,8 +4,8 @@
 
 <ion-content>
   <ion-grid>
-  <ion-row *ngFor="let c of [1,1]">
-    <ion-card button="true" class="cardcontent" (click)="presentModal()">
+  <ion-row *ngFor="let c of lista">
+    <ion-card *ngIf="c.restaurant != null" button="true" class="cardcontent" (click)="presentModal(c.restaurant.nombre, c.titulo, c.descripcion, c.valoracion, c.imagen)" >
       <ion-card-header class="nopadding">
         <ion-grid>
         <ion-row>
@@ -13,7 +13,7 @@
             <ion-img class=" imagen" src="/assets/imgs/Lupe.jfif">
           </ion-img></ion-col>
           <ion-col size="7">
-            <ion-card-subtitle class="Titulo">La Lupe</ion-card-subtitle>
+            <ion-card-subtitle class="Titulo">{{c.titulo}}</ion-card-subtitle>
             <ion-card-subtitle>Degustación de caracoles</ion-card-subtitle>
           </ion-col>
           <ion-col size="2" class="third-col">

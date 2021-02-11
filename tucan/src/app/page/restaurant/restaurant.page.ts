@@ -10,12 +10,26 @@ import { OfferPage } from '../offer/offer.page';
 })
 export class RestaurantPage implements OnInit {
 
+  lista: Array<any> = [
+    {
+      titulo: "Juan",
+      id: 726476765,
+      descripcion: "Ofertakdfkjfjfjdjf",
+      valoracion: 4,
+      imagen: "sijfijfijdj",
+      restaurant: {
+        nombre: "Restaurant",
+      },
+    },{
+      titulo: "Antonio",
+      id: 2,
+      restaurant: null,
+    }
+  ]
+
   offers: any;
-  offersRestaurant:any;
   token: any;
 
-  offerIdRestaurant: any;
-  enterpriseIdRestaurant: any;
 
   buscador = true;
 
@@ -27,14 +41,17 @@ export class RestaurantPage implements OnInit {
 
   }
 
-  async presentModal() {
+  async presentModal(nombre, titulo, descripcion, imagen, valoracion) {
     const modal = await this.modalController.create({
       component: OfferPage,
-      cssClass: 'my-custom-class'
-      // componentProps: {
-      //   'offerId': offerIdRestaurant,
-      //   'enterpriseId': enterpriseIdRestaurant
-      // }
+      cssClass: 'my-custom-class',
+      componentProps: {
+        'nombreEmpresa': nombre,
+        'TituloOferta': titulo,
+        'DescripcionOferta': descripcion,
+        'ImagenEmpresa': imagen,
+        'ValoracionOferta': valoracion
+      }
     });
     return await modal.present();
   }
@@ -52,22 +69,5 @@ export class RestaurantPage implements OnInit {
   //       this.offers = data;
   //     });
   // }
-
-  // obtenerUnaEmpresa(id: any) {
-  //   this.restService.getOneEnterprise(this.token, id)
-  //     .then(data => {
-  //       return data;
-  //     });
-  // }
-
-    // obtenerOfertasRestaurante(){
-    //   for(let i = 0; i<this.offers.length;i++){
-    //     let enterprise = this.obtenerUnaEmpresa(this.offers[i].enterpriseId);
-    //     if (enterprise.type == "Restaurant"){
-    //       this.offersRestaurant.push(this.offers[i]);
-    //     }
-    //   }
-    // }
-
 
 }

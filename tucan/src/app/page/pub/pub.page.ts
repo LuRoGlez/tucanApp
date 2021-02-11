@@ -21,14 +21,17 @@ export class PubPage implements OnInit {
   ngOnInit() {
   }
 
-  async presentModal() {
+  async presentModal(nombre, titulo, descripcion, imagen, valoracion) {
     const modal = await this.modalController.create({
       component: OfferPage,
-      cssClass: 'my-custom-class'
-      // componentProps: {
-      //   'offerId': offerIdRestaurant,
-      //   'enterpriseId': enterpriseIdRestaurant
-      // }
+      cssClass: 'my-custom-class',
+      componentProps: {
+        'nombreEmpresa': nombre,
+        'TituloOferta': titulo,
+        'DescripcionOferta': descripcion,
+        'ImagenEmpresa': imagen,
+        'ValoracionOferta': valoracion
+      }
     });
     return await modal.present();
   }
@@ -47,20 +50,5 @@ export class PubPage implements OnInit {
   //     });
   // }
 
-  // obtenerUnaEmpresa(id: any) {
-  //   this.restService.getOneEnterprise(this.token, id)
-  //     .then(data => {
-  //       this.enterprise = data;
-  //     });
-  // }
-
-  // obtenerOfertasPub(){
-  //   for(let i = 0; i<this.offers.length;i++){
-  //     let enterprise = this.obtenerUnaEmpresa(this.offers[i].enterpriseId);
-  //     if (enterprise.type == "Pub"){
-  //       this.offersPub.push(this.offers[i]);
-  //     }
-  //   }
-  // }
 
 }
