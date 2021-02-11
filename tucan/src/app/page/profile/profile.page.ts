@@ -7,11 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  premium = false;
+  vip = false;
+  novip = true;
 
   constructor() { }
 
   ngOnInit() {
+  }
+  
+  cambiarVip(){
+    if(this.vip==true){
+     this.vip=false;
+     this.novip=true;
+    }else{
+      this.vip=true;
+      this.novip=false;
+    }
   }
 
 }
