@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { RestService } from '../../services/rest.service';
+import { ModalController } from '@ionic/angular';
+import { OfferPage } from '../offer/offer.page';
 
 @Component({
   selector: 'app-pub',
@@ -12,11 +14,23 @@ export class PubPage implements OnInit {
   token: any;
   offersPub: any;
 
-  constructor() {
+  constructor(public modalController: ModalController) {
     
   }
 
   ngOnInit() {
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: OfferPage,
+      cssClass: 'my-custom-class'
+      // componentProps: {
+      //   'offerId': offerIdRestaurant,
+      //   'enterpriseId': enterpriseIdRestaurant
+      // }
+    });
+    return await modal.present();
   }
 
   // hacerLogin() {
