@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { RestService } from '../../services/rest.service';
+import { RestService } from '../../services/rest.service';
 import { ModalController } from '@ionic/angular';
 import { OfferPage } from '../offer/offer.page';
 
@@ -14,11 +14,12 @@ export class PubPage implements OnInit {
   token: any;
   offersPub: any;
 
-  constructor(public modalController: ModalController) {
+  constructor(public modalController: ModalController, public restService: RestService) {
     
   }
 
   ngOnInit() {
+    this.getOffersBar()
   }
 
   async presentModal(nombre, titulo, descripcion, imagen, valoracion) {
@@ -43,12 +44,12 @@ export class PubPage implements OnInit {
   //     });
   // }
 
-  // obtenerOfertas() {
-  //   this.restService.getOffers(this.token)
-  //     .then(data => {
-  //       return data;
-  //     });
-  // }
+  getOffersBar() {
+    this.restService.getOffersBar()
+      .then(data => {
+        this.offers = data.Ofertas;
+      });
+  }
 
 
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-// import { RestService } from '../../services/rest.service';
+import { RestService } from '../../services/rest.service';
 import { OfferPage } from '../offer/offer.page';
 
 @Component({
@@ -10,22 +10,6 @@ import { OfferPage } from '../offer/offer.page';
 })
 export class RestaurantPage implements OnInit {
 
-  lista: Array<any> = [
-    {
-      titulo: "Juan",
-      id: 726476765,
-      descripcion: "Ofertakdfkjfjfjdjf",
-      valoracion: 4,
-      imagen: "sijfijfijdj",
-      restaurant: {
-        nombre: "Restaurant",
-      },
-    },{
-      titulo: "Antonio",
-      id: 2,
-      restaurant: null,
-    }
-  ]
 
   offers: any;
   token: any;
@@ -33,12 +17,12 @@ export class RestaurantPage implements OnInit {
 
   buscador = true;
 
-  constructor(public modalController: ModalController) {
-    
+  constructor(public modalController: ModalController, public restService: RestService) {
+    this.getOffersRestaurant()
   }
 
   ngOnInit() {
-
+    
   }
 
   async presentModal(nombre, titulo, descripcion, imagen, valoracion) {
@@ -63,11 +47,11 @@ export class RestaurantPage implements OnInit {
   //     });
   // }
 
-  // obtenerOfertas() {
-  //   this.restService.getOffers(this.token)
-  //     .then(data => {
-  //       this.offers = data;
-  //     });
-  // }
+  getOffersRestaurant() {
+    this.restService.getOffersRestaurant()
+      .then(data => {
+        this.offers = data.Ofertas;
+      });
+  }
 
 }

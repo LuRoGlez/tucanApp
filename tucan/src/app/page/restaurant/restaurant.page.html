@@ -4,8 +4,8 @@
 
 <ion-content>
   <ion-grid>
-  <ion-row *ngFor="let c of lista">
-    <ion-card *ngIf="c.restaurant != null" button="true" class="cardcontent" (click)="presentModal(c.restaurant.nombre, c.titulo, c.descripcion, c.valoracion, c.imagen)" >
+  <ion-row *ngFor="let oferta of offers">
+    <ion-card *ngIf="oferta.restaurant != null" button="true" class="cardcontent" (click)="presentModal(oferta.restaurant.name, oferta.name, oferta.description, oferta.assessment, oferta.restaurant.logo)" >
       <ion-card-header class="nopadding">
         <ion-grid>
         <ion-row>
@@ -13,17 +13,17 @@
             <ion-img class=" imagen" src="/assets/imgs/Lupe.jfif">
           </ion-img></ion-col>
           <ion-col size="7">
-            <ion-card-subtitle class="Titulo">{{c.titulo}}</ion-card-subtitle>
-            <ion-card-subtitle>Degustación de caracoles</ion-card-subtitle>
+            <ion-card-subtitle class="Titulo">{{oferta.name}}</ion-card-subtitle>
+            <ion-card-subtitle>{{oferta.description}}</ion-card-subtitle>
           </ion-col>
           <ion-col size="2" class="third-col">
             <p></p>
-            <ion-card-subtitle>13:00</ion-card-subtitle>
-            <ion-card-subtitle>22:30</ion-card-subtitle>
-            <ion-icon name="tv-outline" *ngIf="SportLive"></ion-icon>
-            <ion-icon name="musical-notes-outline" *ngIf="LiveMusic"></ion-icon>
+            <ion-card-subtitle>{{oferta.start_date}}</ion-card-subtitle>
+            <ion-card-subtitle>{{oferta.finish_date}}</ion-card-subtitle>
+            <ion-icon name="tv-outline" *ngIf="oferta.sport_direct"></ion-icon>
+            <ion-icon name="musical-notes-outline" *ngIf="oferta.music_direct"></ion-icon>
           </ion-col>
-        </ion-row>
+        </ion-row> 
       </ion-grid>
       </ion-card-header>
     </ion-card>
