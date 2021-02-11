@@ -4,8 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class RestService {
-  apiUrl = 'https://allsites.es/api/public';
+  apiUrl = 'http://tucanapp.allsites.es/public';
   token: any;
 
   constructor(private http: HttpClient) { }
@@ -14,8 +15,8 @@ export class RestService {
     return new Promise(resolve => {
       this.http.post(this.apiUrl + '/api/login',
       {
-        email: 'raul@raul.com',
-        password: '123456'
+        email: 'alvaro@gmail.com',
+        password: 'moli'
       })
         .subscribe(data => {
           this.token = data;
@@ -26,11 +27,22 @@ export class RestService {
     });
   }
 
-  getEnterprises(tok: any) {
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/enterprises', {
-        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok.success.token),
-      })
+  // getOffers(tok: any) {
+  //   return new Promise(resolve => {
+  //     this.http.get(this.apiUrl + '/offers', {
+  //       headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok.success.token),
+  //     })
+  //     .subscribe(data => {
+  //       resolve(data);
+  //     }, err => {
+  //       console.log(err);
+  //     });
+  //   });
+  // }
+
+  async getOffersRestaurant() {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/OfertaRestaurante')
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -39,37 +51,9 @@ export class RestService {
     });
   }
 
-  getOneEnterprise(tok: any, id: any) {
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/enterprises/'+id, {
-        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok.success.token),
-      })
-      .subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
-
-  deleteEnterprise(tok: any, id: any) {
-    return new Promise(resolve => {
-      this.http.delete(this.apiUrl + '/enterprises/'+id, {
-        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok.success.token),
-      })
-      .subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
-
-  getOffers(tok: any) {
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/offers', {
-        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok.success.token),
-      })
+  async getOffersBar() {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/OfertaBar')
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -80,32 +64,6 @@ export class RestService {
 
 
 
-  
-  getOneOffer(tok: any, id: any) {
-    return new Promise(resolve => {
-      this.http.get(this.apiUrl + '/offers/'+id, {
-        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok.success.token),
-      })
-      .subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
-
-  deleteOffer(tok: any, id: any) {
-    return new Promise(resolve => {
-      this.http.delete(this.apiUrl + '/offers/'+id, {
-        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok.success.token),
-      })
-      .subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
 
 
 }

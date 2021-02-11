@@ -9,8 +9,14 @@ import { ModalController } from '@ionic/angular';
 })
 export class OfferPage implements OnInit {
 
-  @Input() offerId: any;
-  @Input() enterpriseId: any;
+  @Input() nombreEmpresa: any;
+  @Input() TituloOferta: any;
+  @Input() DescripcionOferta: any;
+  @Input() ImagenEmpresa: any;
+  @Input() ValoracionOferta: any;
+  
+
+
   token: any;
   offer: any;
   enterprise: any;
@@ -30,25 +36,5 @@ export class OfferPage implements OnInit {
     });
   }
 
-  // obtenerUnaOferta(id: any) {
-  //   this.restService.getOneOffer(this.token, id)
-  //     .then(data => {
-  //       this.offer = data;
-  //   });
-  // }
-
-  // hacerLogin() {
-  //   this.restService.login()
-  //     .then(data => {
-  //       this.token = data;
-  //     });
-  // }
-
-  // obtenerUnaEmpresa(id: any) {
-  //   this.restService.getOneEnterprise(this.token, id)
-  //     .then(data => {
-  //       this.enterprise = data;
-  //     });
-  // }
 
 }

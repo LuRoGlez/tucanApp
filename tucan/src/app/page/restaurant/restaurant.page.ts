@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-// import { RestService } from '../../services/rest.service';
+import { RestService } from '../../services/rest.service';
 import { OfferPage } from '../offer/offer.page';
 
 @Component({
@@ -10,31 +10,32 @@ import { OfferPage } from '../offer/offer.page';
 })
 export class RestaurantPage implements OnInit {
 
+
   offers: any;
-  offersRestaurant:any;
   token: any;
 
-  offerIdRestaurant: any;
-  enterpriseIdRestaurant: any;
 
   buscador = true;
 
-  constructor(public modalController: ModalController) {
-    
+  constructor(public modalController: ModalController, public restService: RestService) {
+    this.getOffersRestaurant()
   }
 
   ngOnInit() {
-
+    
   }
 
-  async presentModal() {
+  async presentModal(nombre, titulo, descripcion, imagen, valoracion) {
     const modal = await this.modalController.create({
       component: OfferPage,
-      cssClass: 'my-custom-class'
-      // componentProps: {
-      //   'offerId': offerIdRestaurant,
-      //   'enterpriseId': enterpriseIdRestaurant
-      // }
+      cssClass: 'my-custom-class',
+      componentProps: {
+        'nombreEmpresa': nombre,
+        'TituloOferta': titulo,
+        'DescripcionOferta': descripcion,
+        'ImagenEmpresa': imagen,
+        'ValoracionOferta': valoracion
+      }
     });
     return await modal.present();
   }
@@ -46,28 +47,11 @@ export class RestaurantPage implements OnInit {
   //     });
   // }
 
-  // obtenerOfertas() {
-  //   this.restService.getOffers(this.token)
-  //     .then(data => {
-  //       this.offers = data;
-  //     });
-  // }
-
-  // obtenerUnaEmpresa(id: any) {
-  //   this.restService.getOneEnterprise(this.token, id)
-  //     .then(data => {
-  //       return data;
-  //     });
-  // }
-
-    // obtenerOfertasRestaurante(){
-    //   for(let i = 0; i<this.offers.length;i++){
-    //     let enterprise = this.obtenerUnaEmpresa(this.offers[i].enterpriseId);
-    //     if (enterprise.type == "Restaurant"){
-    //       this.offersRestaurant.push(this.offers[i]);
-    //     }
-    //   }
-    // }
-
+  getOffersRestaurant() {
+    this.restService.getOffersRestaurant()
+      .then(data => {
+        this.offers = data.Ofertas;
+      });
+  }
 
 }
