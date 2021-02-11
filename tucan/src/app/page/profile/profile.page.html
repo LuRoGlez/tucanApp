@@ -2,13 +2,14 @@
 
 <ion-content *ngIf="vip"> 
     <section>
+        <div class="formulario">
         <form>
-            <input type="text" name="nombre" size="10" placeholder="Nombre de la empresa">
-            <input type="text" name="direccion" size="10" placeholder="Dirección">
-            <input type="text" name="state" size="10" placeholder="provincia">
-            <input type="text" name="localidad" size="10" placeholder="Localidad">
+            <input type="text" name="nombre"  placeholder="Nombre de la empresa">
+            <input type="text" name="direccion"  placeholder="Dirección">
+            <input type="text" name="state"  placeholder="provincia">
+            <input type="text" name="localidad"  placeholder="Localidad">
             <legend><p>Tipo de negocio</p>
-                <p>
+                <p class="radio">
               <input type="radio" name="type" value="h"> Restaurante
               <input type="radio" name="type" value="m"> Cafe & Copas
               <input type="radio" name="type" value="m"> Discoteca
@@ -24,12 +25,16 @@
                 <option>tralala</option>
                 
                 </select>
-            
+                <label for="img" class="botonimg">Añadir logo</label>
+                <input id="img" type="file" name="imagen"/>
+
             <p>
-              <input type="submit" value="Registrar">
+              <label for="enviar" class="crear">CREAR EMPRESA</label>  
+              <input id="enviar" type="submit" value="crear empresa" (click)="registrar()">
             </p>
             
           </form>
+        </div>
     </section>
 </ion-content>
 <ion-content *ngIf="novip">
@@ -38,4 +43,24 @@
         <span button="true" (click)="cambiarVip()">¡HAZTE VIP!</span>
         <p class="parrafo">Súbete a nuestra rama y únete a la comunidad de las ofertas en tiempo real</p>
     </section>
+
+</ion-content>
+<ion-content *ngIf="registrado"> 
+    <ion-grid>
+        <ion-row>
+            <ion-col size="4">
+                <ion-img alt="logo empresa" src="/assets/imgs/Lupe.jfif"></ion-img>
+            </ion-col>
+            <ion-col>
+                <h2>Nombre del local</h2>
+                <p>Correo usuario</p>
+            </ion-col>
+        </ion-row>
+        <ion-row class="botonesperfil">
+            <p>
+                <label  class="crear" href="/createoffer">CREAR OFERTA</label>  
+              </p>
+              <span class="iraofertas" button="true" href="/published">OFERTAS PUBLICADAS</span>
+        </ion-row>
+    </ion-grid>
 </ion-content>

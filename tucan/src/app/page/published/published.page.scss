@@ -1,0 +1,59 @@
+input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: grey;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+  form {
+    width: 200px;
+    margin: 0;
+    height: 50px;
+  }
+
+  form label{
+      font-size: 25px;
+      margin: 0px;
+      padding: 0%;
+  }
+  .valoracion{
+    text-align: center;
+    direction: rtl;/* right to left */
+    unicode-bidi: bidi-override;/* bidi de bidireccional */
+    margin: 2px;
+    padding: 0px;
+}
+
+.Titulo{
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.cardcontent{
+    padding: 0px;
+    margin: 2px;
+    
+}
+
+.nopadding{
+    padding: 0%;
+    margin: 0%;
+}
+
+.third-col{
+    text-align: right;
+}
+

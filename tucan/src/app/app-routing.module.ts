@@ -30,6 +30,18 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./page/profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'published',
+    loadChildren: () => import('./page/published/published.module').then( m => m.PublishedPageModule)
+  },
+  {
+    path: 'createoffer',
+    loadChildren: () => import('./page/createoffer/createoffer.module').then( m => m.CreateofferPageModule)
+  },
+  {
+    path: 'loggin',
+    loadChildren: () => import('./page/loggin/loggin.module').then( m => m.LogginPageModule)
+  },
 
 
 

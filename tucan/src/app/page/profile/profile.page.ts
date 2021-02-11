@@ -9,6 +9,7 @@ export class ProfilePage implements OnInit {
 
   vip = false;
   novip = true;
+  registrado= false;
 
   constructor() { }
 
@@ -23,6 +24,12 @@ export class ProfilePage implements OnInit {
       this.vip=true;
       this.novip=false;
     }
+  }
+
+  registrar(){
+    this.registrado=true;
+    this.vip=false;
+    
   }
 
 }
