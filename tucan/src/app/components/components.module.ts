@@ -1,3 +1,4 @@
+import { MapComponent } from './map/map.component';
 import { MenuComponent } from './menu/menu.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,7 +11,7 @@ import { HeaderOfferComponent } from './header-offer/header-offer.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, SearchComponent, HeaderOfferComponent, MenuComponent],
+  declarations: [HeaderComponent, SearchComponent, HeaderOfferComponent, MenuComponent, MapComponent],
   imports: [
     CommonModule,
     IonicModule
