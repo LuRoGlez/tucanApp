@@ -5,8 +5,18 @@
   <div class="formulario">
   <form>
       <input type="text" name="titulo"  placeholder="Título de la oferta">
-      <input type="datetime-local" name="hora_inicio"  placeholder="Cuando empieza">
-      <input type="datetime-local" name="hora_final"  placeholder="Cuando acaba">
+      <ion-item>
+        <ion-label>Fecha</ion-label>
+        <ion-datetime value="1990-02-19" placeholder="Select Date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Hora Inicio</ion-label>
+        <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Hora Fin</ion-label>
+        <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
+      </ion-item>
       <textarea name="descripción" row="5">Describe tu oferta</textarea>
       <legend><p>Indica si hay musica en directo o algun evento televisivo</p>
           <input type="checkbox" id="music" class="noShow">
