@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { RestService } from '../../services/rest.service';
+import { RestService } from '../../services/rest.service';
 import { ModalController } from '@ionic/angular';
 import { OfferPage } from '../offer/offer.page';
 
@@ -12,10 +12,9 @@ export class DiscothequePage implements OnInit {
   
   offers: any;
   token: any;
-  offersDicotheque: any;
 
-  constructor(public modalController: ModalController) { 
-    
+  constructor(public modalController: ModalController, public restService: RestService) { 
+    this.getOffersDiscotheque()
   }
 
   ngOnInit() {
@@ -36,19 +35,12 @@ export class DiscothequePage implements OnInit {
     return await modal.present();
   }
 
-  // hacerLogin() {
-  //   this.restService.login()
-  //     .then(data => {
-  //       this.token = data;
-  //     });
-  // }
-
-  // obtenerOfertas() {
-  //   this.restService.getOffers(this.token)
-  //     .then(data => {
-  //       this.offers = data;
-  //     });
-  // }
+  getOffersDiscotheque() {
+    this.restService.getOffersDicotheque()
+      .then(data => {
+        this.offers = data.Ofertas;
+      });
+  }
 
 
 }
