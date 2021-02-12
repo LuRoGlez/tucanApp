@@ -36,10 +36,13 @@ export class DiscothequePage implements OnInit {
   }
 
   getOffersDiscotheque() {
-    this.restService.getOffersDicotheque()
+    if(this.restService.token.success.token != null){
+      this.restService.getOffersDicotheque(this.restService.token.success.token)
       .then(data => {
         this.offers = data.Ofertas;
       });
+    }
+    
   }
 
 

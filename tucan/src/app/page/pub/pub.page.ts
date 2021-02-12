@@ -45,10 +45,13 @@ export class PubPage implements OnInit {
   // }
 
   getOffersBar() {
-    this.restService.getOffersBar()
+    if(this.restService.token.success.token != null){
+      this.restService.getOffersBar(this.restService.token.success.token)
       .then(data => {
         this.offers = data.Ofertas;
       });
+    }
+    
   }
 
 
