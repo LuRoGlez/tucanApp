@@ -51,7 +51,6 @@ export class PubPage implements OnInit {
         this.offers = data.Ofertas;
       });
     }
-    
   }
 
 
