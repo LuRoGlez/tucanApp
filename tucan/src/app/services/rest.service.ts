@@ -11,12 +11,30 @@ export class RestService {
 
   constructor(private http: HttpClient) { }
 
-  login() {
-    return new Promise(resolve => {
+  async login(email, password) {
+    return await new Promise(resolve => {
       this.http.post(this.apiUrl + '/api/login',
       {
-        email: 'alvaro@gmail.com',
-        password: 'moli'
+        email: email,
+        password: password
+      })
+        .subscribe(data => {
+          this.token = data;
+          resolve(data);
+        }, err => {
+          console.log(err);
+        });
+    });
+  }
+
+  async register(name, email, password, c_password) {
+    return await new Promise(resolve => {
+      this.http.post(this.apiUrl + '/api/register',
+      {
+        name: name,
+        email: email,
+        password: password,
+        c_password: c_password
       })
         .subscribe(data => {
           this.token = data;
@@ -43,6 +61,17 @@ export class RestService {
   async getOffersRestaurant() {
     return await new Promise<any>(resolve => {
       this.http.get(this.apiUrl + '/OfertaRestaurante')
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  async getOffersDicotheque() {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/OfertaDiscoteca')
       .subscribe(data => {
         resolve(data);
       }, err => {
