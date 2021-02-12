@@ -11,7 +11,7 @@ import { HeaderOfferComponent } from './header-offer/header-offer.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, SearchComponent, HeaderOfferComponent, MenuComponent, MapComponent],
+  declarations: [HeaderComponent, SearchComponent, HeaderOfferComponent, MenuComponent],
   imports: [
     CommonModule,
     IonicModule
