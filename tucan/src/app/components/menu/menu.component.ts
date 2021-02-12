@@ -18,4 +18,8 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/profile']);
   }
 
+  irHome(){
+    this.router.navigate(['/tab-principal']);
+  }
+
 }
