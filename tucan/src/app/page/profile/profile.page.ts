@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from '../../services/rest.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,14 +10,22 @@ export class ProfilePage implements OnInit {
 
   vip = false;
   novip = true;
-  registrado= false;
+  registrado = false;
 
-  constructor() { }
+  constructor(public restService: RestService) {
+    console.log(this.restService.token.success.vip);
+    this.registrado = this.restService.token.success.vip;
+
+  }
 
   ngOnInit() {
+    
   }
   
+  
+
   cambiarVip(){
+    
     if(this.vip==true){
      this.vip=false;
      this.novip=true;

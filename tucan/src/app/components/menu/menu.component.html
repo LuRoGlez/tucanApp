@@ -5,7 +5,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-img src="/assets/imgs/logotucan.png"></ion-img>
+    <ion-img src="/assets/imgs/logotucan.png" (click)="irHome()"></ion-img>
   </ion-content>
   <ion-content>
     <ion-list>
@@ -13,7 +13,7 @@
         <ion-icon name="checkmark-done-circle-outline"></ion-icon><span>FILTROS</span></ion-item>
         <ion-item button="true" href="/myoferts">
           <ion-icon name="pricetags-outline"></ion-icon><span>MIS OFERTAS</span></ion-item>
-          <ion-item button="true" href="/profile">
+          <ion-item button="true" (click)="irPerfil()">
             <ion-icon name="person-circle-outline"></ion-icon><span>PERFIL</span></ion-item>
     </ion-list>
   </ion-content>

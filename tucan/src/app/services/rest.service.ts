@@ -8,11 +8,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class RestService {
   apiUrl = 'http://tucanapp.allsites.es/public';
   token: any;
+  vip: any;
 
   constructor(private http: HttpClient) { }
 
   async login(email, password) {
-    return await new Promise(resolve => {
+    return await new Promise<any>(resolve => {
       this.http.post(this.apiUrl + '/api/login',
       {
         email: email,
@@ -60,8 +61,24 @@ export class RestService {
 
   async getOffersRestaurant(tok: any) {
     return await new Promise<any>(resolve => {
-      this.http.get(this.apiUrl + '/OfertaRestaurante', {
-              headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      this.http.get(this.apiUrl + '/OfertaRestaurante', 
+      {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  async actualizarVip(tok: any, id: any) {
+    return await new Promise<any>(resolve => {
+      this.http.patch(this.apiUrl + '/users/'+id, 
+      {
+        vip: 1,
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
       })
       .subscribe(data => {
         resolve(data);

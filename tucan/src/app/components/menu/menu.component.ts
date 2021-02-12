@@ -8,8 +8,18 @@ import {Router, RouterLink} from "@angular/router";
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
+
+  irPerfil(){
+    this.router.navigate(['/profile']);
+  }
+
+  irHome(){
+    this.router.navigate(['/tab-principal']);
+  }
 
 }
