@@ -48,10 +48,12 @@ export class RestaurantPage implements OnInit {
   // }
 
   getOffersRestaurant() {
-    this.restService.getOffersRestaurant()
-      .then(data => {
-        this.offers = data.Ofertas;
-      });
+    if(this.restService.token.success.token != null){
+      this.restService.getOffersRestaurant(this.restService.token.success.token)
+        .then(data => {
+          this.offers = data.Ofertas;
+        });
+    } 
   }
 
 }

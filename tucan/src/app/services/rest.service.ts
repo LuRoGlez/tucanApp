@@ -58,9 +58,11 @@ export class RestService {
   //   });
   // }
 
-  async getOffersRestaurant() {
+  async getOffersRestaurant(tok: any) {
     return await new Promise<any>(resolve => {
-      this.http.get(this.apiUrl + '/OfertaRestaurante')
+      this.http.get(this.apiUrl + '/OfertaRestaurante', {
+              headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -69,9 +71,11 @@ export class RestService {
     });
   }
 
-  async getOffersDicotheque() {
+  async getOffersDicotheque(tok: any) {
     return await new Promise<any>(resolve => {
-      this.http.get(this.apiUrl + '/OfertaDiscoteca')
+      this.http.get(this.apiUrl + '/OfertaDiscoteca', {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
       .subscribe(data => {
         resolve(data);
       }, err => {
@@ -80,9 +84,11 @@ export class RestService {
     });
   }
 
-  async getOffersBar() {
+  async getOffersBar(tok: any) {
     return await new Promise<any>(resolve => {
-      this.http.get(this.apiUrl + '/OfertaBar')
+      this.http.get(this.apiUrl + '/OfertaBar', {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
       .subscribe(data => {
         resolve(data);
       }, err => {
