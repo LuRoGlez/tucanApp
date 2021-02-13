@@ -1,7 +1,7 @@
 {
-  "name": "tucan",
+  "name": "map",
   "integrations": {
-    "capacitor": {}
+    "cordova": {}
   },
   "type": "angular"
 }
