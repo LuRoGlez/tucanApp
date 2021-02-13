@@ -7,8 +7,10 @@
 }
 
 .cardcontent{
-    padding: 0px;
+    padding: 0;
     margin: 2px;
+    width: 100%;
+    height: 100%;
     
 }
 
@@ -23,7 +25,8 @@
 
 ion-img::part(image) {
     border-radius: 5%;
-    margin:0px
+    margin:0px;
+    size: 100%
   }
 
   .description{

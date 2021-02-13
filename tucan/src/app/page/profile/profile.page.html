@@ -3,37 +3,33 @@
 <ion-content *ngIf="vip"> 
     <section>
         <div class="formulario">
-        <form>
-            <input type="text" name="nombre"  placeholder="Nombre de la empresa">
-            <input type="text" name="direccion"  placeholder="Dirección">
-            <input type="text" name="state"  placeholder="provincia">
-            <input type="text" name="localidad"  placeholder="Localidad">
+            <input type="text" name="nombre"  placeholder="Nombre de la empresa" required="true">
+            <input type="text" name="direccion"  placeholder="Dirección" required="true">
+            <input type="text" name="state"  placeholder="provincia" required="true">
+            <input type="text" name="localidad"  placeholder="Localidad" required="true">
             <legend><p>Tipo de negocio</p>
                 <p class="radio">
-              <input type="radio" name="type" value="h"> Restaurante
-              <input type="radio" name="type" value="m"> Cafe & Copas
-              <input type="radio" name="type" value="m"> Discoteca
+              <input type="radio" name="type" value="restaurante"> Restaurante
+              <input type="radio" name="type" value="pub"> Cafe & Copas
+              <input type="radio" name="type" value="discoteca"> Discoteca
             </p>
             </legend>
 
-            <select name="subtipo" aria-placeholder="Selecciona una categoría" class="select">
+            <ion-select name="subtipo" placeholder="Selecciona una categoría" class="select">
 
-                <option>Restaurante Chino</option>
-                
-                <option>Pizzería</option>
-                
-                <option>tralala</option>
-                
-                </select>
+                <ion-select-option>Restaurante Chino</ion-select-option>
+                <ion-select-option>Pizzería</ion-select-option>
+                <ion-select-option>tralala</ion-select-option>             
+            </ion-select>
+
                 <label for="img" class="botonimg">Añadir logo</label>
-                <input id="img" type="file" name="imagen"/>
+                <input id="img" type="file" name="imagen" accept=".jpeg, .jpg, .png">
 
             <p>
               <label for="enviar" class="crear">CREAR EMPRESA</label>  
               <input id="enviar" type="submit" value="crear empresa" (click)="registrar()">
             </p>
             
-          </form>
         </div>
     </section>
 </ion-content>

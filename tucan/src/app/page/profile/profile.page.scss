@@ -40,6 +40,9 @@ p{
     color:rgb(0, 0, 0, 0.65)
   }
   .formulario{
+      display: flex;
+      flex-direction: column;
+      margin-top: 25px;
       width: 90%;
   }
   .radio{
@@ -53,7 +56,8 @@ p{
       display: none;
   }
   .botonimg{
-      margin:   25px;
+      margin-top:   25px;
+      margin-bottom: 25px;
       padding: 12px;
       border-radius: 5%;
       background-color: rgb(20, 155, 61);
