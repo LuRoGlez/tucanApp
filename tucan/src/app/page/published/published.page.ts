@@ -11,25 +11,38 @@ export class PublishedPage implements OnInit {
 
   empresas: any;
   empresa: any;
+  ofertas: any[];
 
   constructor(public restService: RestService,public profilePage: ProfilePage) { 
     this.getEmpresa()
+    this.getOffers()
   }
 
   ngOnInit() {
   }
-
 
   getEmpresa(){
     this.restService.getEnterprises(this.restService.token.success.token).then(data=>{
       this.empresas = data.Empresas
       for(let i = 0; i < this.empresas.length ; i++){
           if(this.restService.token.success.id == this.empresas[i].own){
-            this.restService.getEnterprise(this.restService.token.success.token, this.empresas[i].id).then(data=>{
-              this.empresa = data.Empresa;
-            }) 
+            this.empresa = this.empresas[i]; 
           }
         }
+        
+    })
+  }
+
+  getOffers(){
+    this.restService.getOffers(this.restService.token.success.token).then(data=>{
+      this.ofertas = [];
+      for(let i = 0; i<data.Ofertas.length; i++){
+        if(data.Ofertas[i].enterprise_id == this.empresa.id){
+          this.ofertas.push(data.Ofertas[i]);
+          
+        }
+      }
+      console.log(this.ofertas)
     })
   }
 

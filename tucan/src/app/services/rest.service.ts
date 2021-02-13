@@ -59,6 +59,19 @@ export class RestService {
     });
   }
 
+  async getOffers(tok: any) {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/offers', {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
   async getEnterprise(tok: any, id) {
     return await new Promise<any>(resolve => {
       this.http.get(this.apiUrl + '/enterprises/' + id, {
