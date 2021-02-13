@@ -16,16 +16,19 @@
             </p>
             </legend>
 
-            <select name="subtipo" aria-placeholder="Selecciona una categoría" class="select" [formControl]="subTipoEmpresa">
-
+            <ion-select name="subtipo" aria-placeholder="Selecciona una categoría" class="select" [formControl]="subTipoEmpresa">
+                <ion-select-option>Restaurante Chino</ion-select-option>
+                <ion-select-option>Pizzería</ion-select-option>
+                <ion-select-option>tralala</ion-select-option>
+            </ion-select>
                 <label for="img" class="botonimg">Añadir logo</label>
-                <input id="img" type="file" name="imagen" [formControl]="imagenEmpresa"/>
+                <input id="img" type="file" name="imagen" [formControl]="imagenEmpresa">
 
             <p>
               <label for="enviar" class="crear">CREAR EMPRESA</label>  
               <input id="enviar" type="submit" value="crear empresa" (click)="registrar()">
             </p>
-            
+        </form>
         </div>
     </section>
 </ion-content>
