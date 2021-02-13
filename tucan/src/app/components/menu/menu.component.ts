@@ -20,6 +20,7 @@ export class MenuComponent implements OnInit {
 
   irHome(){
     this.router.navigate(['/tab-principal']);
+    
   }
 
 }

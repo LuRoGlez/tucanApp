@@ -4,20 +4,22 @@
 <section>
   <div class="formulario">
   <form>
-      <input type="text" name="titulo"  placeholder="Título de la oferta">
+      <input type="text" name="titulo"  placeholder="Título de la oferta" required="true">
       <ion-item>
         <ion-label>Fecha</ion-label>
-        <ion-datetime value="1990-02-19" placeholder="Select Date"></ion-datetime>
+        <ion-datetime value="1990-02-19" placeholder="Select Date" required="true"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Hora Inicio</ion-label>
-        <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
+        <ion-datetime display-format="h:mm A" picker-format="h:mm A"  required="true"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Hora Fin</ion-label>
-        <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
+        <ion-datetime display-format="h:mm A" picker-format="h:mm A"  required="true"></ion-datetime>
       </ion-item>
-      <textarea name="descripción" row="5">Describe tu oferta</textarea>
+      <fieldset>
+      <ion-textarea name="descripción" row="5" placeholder="Describe tu oferta" required="true" maxlength="220"></ion-textarea>
+      </fieldset>
       <legend><p>Indica si hay musica en directo o algun evento televisivo</p>
           <input type="checkbox" id="music" class="noShow">
           <label for="music" class="icons"><ion-icon name="musical-notes-outline"></ion-icon></label>
@@ -25,15 +27,15 @@
           <label for="tv" class="icons"><ion-icon name="tv-outline" ></ion-icon></label>
       </legend>
 
-      <select name="subtipo" aria-placeholder="Datos extra" class="select">
+      <ion-select name="subtipo" placeholder="Datos extra" class="select">
 
-          <option>Billar</option>
+          <ion-select-option>Billar</ion-select-option>
           
-          <option>Dardos</option>
+          <ion-select-option>Dardos</ion-select-option>
           
-          <option>Clases de baile</option>
+          <ion-select-option>Clases de baile</ion-select-option>
           
-          </select>
+          </ion-select>
 
       <p>
         <label for="enviar" class="crear" button="true">CREAR OFERTA</label>  

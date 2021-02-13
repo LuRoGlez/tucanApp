@@ -64,4 +64,13 @@ fieldset{
      font-size: 10px;
  }
 
-  
+  ion-checkbox{
+    --background-checked:#01641c;
+    --border-color-checked: #01641c;
+  }
+
+  ion-range{
+      --bar-background-active: #01641c;
+      --bar-background: #01641b6e;
+      --pin-background: #01641c
+  }

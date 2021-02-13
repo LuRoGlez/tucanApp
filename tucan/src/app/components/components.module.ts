@@ -1,4 +1,3 @@
-import { MapComponent } from './map/map.component';
 import { MenuComponent } from './menu/menu.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
