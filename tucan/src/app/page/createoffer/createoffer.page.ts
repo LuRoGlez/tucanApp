@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfilePage } from '../profile/profile.page';
 
 @Component({
   selector: 'app-createoffer',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateofferPage implements OnInit {
 
-  constructor() { }
+  empresa:any;
+  
+  constructor(public profilePage: ProfilePage) {
+    console.log(this.profilePage.empresa)
+  }
 
   ngOnInit() {
   }

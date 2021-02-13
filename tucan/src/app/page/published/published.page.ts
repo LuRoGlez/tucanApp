@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfilePage } from '../profile/profile.page';
 
 @Component({
   selector: 'app-published',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublishedPage implements OnInit {
 
-  constructor() { }
+  constructor(public profilePage: ProfilePage) { }
 
   ngOnInit() {
   }

@@ -1,12 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { RestService } from '../../services/rest.service';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class ProfilePage implements OnInit {
 
   vip = false;
@@ -25,17 +31,16 @@ export class ProfilePage implements OnInit {
 
   empresa: any;
   
+  empresas : any;
 
 
 
-
-  constructor(public restService: RestService) {
+  constructor(public restService: RestService, public router: Router) {
     if(this.restService.token.success.vip){
       this.vip=false;
       this.novip=false;
       this.registrado=true;
-
-
+      this.getEmpresa();
     }
     
 
@@ -69,8 +74,37 @@ export class ProfilePage implements OnInit {
       .then(data=>{
         this.empresa = data
     })
-    // this.registrado=true;
-    // this.vip=false;
+    // this.actualizarVip();
+    this.getEmpresa();
+    this.registrado=true;
+    this.vip=false;
+  }
+
+  actualizarVip(){
+    console.log(this.restService.token.success.token);
+    this.restService.actualizarVip(this.restService.token.success.token, this.restService.token.success.id).then(data=>{
+      console.log(data);
+    })
+  }
+
+  getEmpresa(){
+    this.restService.getEnterprises(this.restService.token.success.token).then(data=>{
+      this.empresas = data.Empresas
+      for(let i = 0; i < this.empresas.length ; i++){
+          if(this.restService.token.success.id == this.empresas[i].own){
+            this.empresa = this.empresas[i]; 
+          }
+        }
+        console.log(this.empresa)
+    })
+  }
+
+  crearOferta(){
+    this.router.navigate(['/createoffer']);
+  }
+
+  ofertasPublicadas(){
+    this.router.navigate(['/published']);
   }
 
 }

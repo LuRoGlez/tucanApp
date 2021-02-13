@@ -46,18 +46,31 @@ export class RestService {
     });
   }
 
-  // getOffers(tok: any) {
-  //   return new Promise(resolve => {
-  //     this.http.get(this.apiUrl + '/offers', {
-  //       headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok.success.token),
-  //     })
-  //     .subscribe(data => {
-  //       resolve(data);
-  //     }, err => {
-  //       console.log(err);
-  //     });
-  //   });
-  // }
+  async getEnterprises(tok: any) {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/enterprises', {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  async getEnterprise(tok: any, id) {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/enterprises/' + id, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 
   async getOffersRestaurant(tok: any) {
     return await new Promise<any>(resolve => {
@@ -75,7 +88,7 @@ export class RestService {
 
   async actualizarVip(tok: any, id: any) {
     return await new Promise<any>(resolve => {
-      this.http.patch(this.apiUrl + '/users/'+id, 
+      this.http.put(this.apiUrl + '/users/'+id, 
       {
         vip: 1
       },
