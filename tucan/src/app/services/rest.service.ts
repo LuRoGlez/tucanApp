@@ -167,18 +167,19 @@ export class RestService {
     });
   }
 
-  async createOffer(tok: any, nombreEmpresa, direccionEmpresa, provinciaEmpresa, localidadEmpresa, tipoEmpresa, subTipoEmpresa, imagenEmpresa, dueño) {
+  async createOffer(tok: any, nombreOferta, descripdionOferta, fechaInicio, horaInicio, horaFin, musicaDirecto, idEmpresa, deporteDirecto) {
     return await new Promise<any>(resolve => {
       this.http.post(this.apiUrl + '/offers',
       {
-        name: nombreEmpresa,
-        address: direccionEmpresa,
-        type: tipoEmpresa,
-        logo: imagenEmpresa,
-        own: dueño,
-        state: provinciaEmpresa,
-        city: localidadEmpresa,
-        subtype: subTipoEmpresa
+        name: nombreOferta,
+        description: descripdionOferta,
+        start_date: fechaInicio,
+        start_time: horaInicio,
+        finish_time: horaFin,
+        assessment: 0,
+        enterprise_id: idEmpresa,
+        music_direct: musicaDirecto,
+        sport_direct: deporteDirecto
       },
       {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok)
