@@ -1,7 +1,8 @@
+
+import { Map, tileLayer, marker, polyline } from 'leaflet';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Map, tileLayer, marker, polyline } from "leaflet";
 
 // import { RestService } from 'src/app/services/rest.service';
 
@@ -11,6 +12,9 @@ import { Map, tileLayer, marker, polyline } from "leaflet";
   styleUrls: ['./offer.page.scss'],
 })
 export class OfferPage implements OnInit {
+  map: Map;
+  marker: any;
+  latLong = [];
 
   @Input() nombreEmpresa: any;
   @Input() TituloOferta: any;
@@ -18,15 +22,13 @@ export class OfferPage implements OnInit {
   @Input() ImagenEmpresa: any;
   @Input() ValoracionOferta: any;
   
-  map: Map;
-  marker: any;
-  latLong= [];
+
 
   token: any;
   offer: any;
   enterprise: any;
 
-  constructor(public modalCtrl: ModalController, private geolocation: Geolocation) {
+  constructor(public modalCtrl: ModalController, private geolocation: Geolocation ) {
     
   }
 
@@ -41,42 +43,42 @@ export class OfferPage implements OnInit {
     });
   }
 
+  /**metodos mapa */
 
-/**metodos mapa */
-ionViewDidEnter(){
-  this.showMap();
+  ionViewDidEnter(){
+    this.showMap();
+  }
+
+  showMap() {
+    this.map = new Map('myMap').setView([-6.2411137, 106.6284969], 10);
+    tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(this.map);
 }
-
-
-showMap() {
-  this.map = new Map('myMap').setView([-6.2411137, 106.6284969], 10);
-  tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(this.map);
-}
-
+ 
 showMarker(latLong) {
-  this.marker = marker(latLong, 15);
-  this.marker.addTo(this.map)
-  .bindPopup('Hey, I\'m Here');
-  this.map.setView(latLong);
+    this.marker = marker(latLong, 15);
+    this.marker.addTo(this.map)
+    .bindPopup('Hey, I\'m Here');
+    this.map.setView(latLong);
+}
+ 
+getPositions() {
+    this.geolocation.getCurrentPosition({
+      enableHighAccuracy: true
+    }).then((res) => {
+      return this.latLong = [
+        res.coords.latitude,
+        res.coords.longitude
+      ]
+    }).then((latlng) => {
+      if (this.marker) {
+        this.marker.remove();
+        this.showMarker(latlng);
+      } else {
+        this.showMarker(latlng);
+      };
+    });
 }
 
-getPositions() {
-  this.geolocation.getCurrentPosition({
-    enableHighAccuracy: true
-  }).then((res) => {
-    return this.latLong = [
-      res.coords.latitude,
-      res.coords.longitude
-    ]
-  }).then((latlng) => {
-    if (this.marker) {
-      this.marker.remove();
-      this.showMarker(latlng);
-    } else {
-      this.showMarker(latlng);
-    };
-  });
-}
 
 
 
