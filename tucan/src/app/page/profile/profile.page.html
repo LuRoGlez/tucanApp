@@ -3,27 +3,23 @@
 <ion-content *ngIf="vip"> 
     <section>
         <div class="formulario">
-            <input type="text" name="nombre"  placeholder="Nombre de la empresa" required="true">
-            <input type="text" name="direccion"  placeholder="Dirección" required="true">
-            <input type="text" name="state"  placeholder="provincia" required="true">
-            <input type="text" name="localidad"  placeholder="Localidad" required="true">
+        <form>
+            <input type="text" name="nombre"  placeholder="Nombre de la empresa" [formControl]="nombreEmpresa">
+            <input type="text" name="direccion"  placeholder="Dirección" [formControl]="direccionEmpresa">
+            <input type="text" name="state"  placeholder="provincia" [formControl]="provinciaEmpresa">
+            <input type="text" name="localidad"  placeholder="Localidad" [formControl]="localidadEmpresa">
             <legend><p>Tipo de negocio</p>
                 <p class="radio">
-              <input type="radio" name="type" value="restaurante"> Restaurante
-              <input type="radio" name="type" value="pub"> Cafe & Copas
-              <input type="radio" name="type" value="discoteca"> Discoteca
+              <input type="radio" name="type" value="Restaurant" [formControl]="tipoEmpresa"> Restaurante
+              <input type="radio" name="type" value="Bar" [formControl]="tipoEmpresa"> Cafe & Copas
+              <input type="radio" name="type" value="Discotheque" [formControl]="tipoEmpresa"> Discoteca
             </p>
             </legend>
 
-            <ion-select name="subtipo" placeholder="Selecciona una categoría" class="select">
-
-                <ion-select-option>Restaurante Chino</ion-select-option>
-                <ion-select-option>Pizzería</ion-select-option>
-                <ion-select-option>tralala</ion-select-option>             
-            </ion-select>
+            <select name="subtipo" aria-placeholder="Selecciona una categoría" class="select" [formControl]="subTipoEmpresa">
 
                 <label for="img" class="botonimg">Añadir logo</label>
-                <input id="img" type="file" name="imagen" accept=".jpeg, .jpg, .png">
+                <input id="img" type="file" name="imagen" [formControl]="imagenEmpresa"/>
 
             <p>
               <label for="enviar" class="crear">CREAR EMPRESA</label>  

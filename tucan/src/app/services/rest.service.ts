@@ -77,7 +77,9 @@ export class RestService {
     return await new Promise<any>(resolve => {
       this.http.patch(this.apiUrl + '/users/'+id, 
       {
-        vip: 1,
+        vip: 1
+      },
+      {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
       })
       .subscribe(data => {
@@ -111,6 +113,31 @@ export class RestService {
       }, err => {
         console.log(err);
       });
+    });
+  }
+
+  async createEnterprise(tok: any, nombreEmpresa, direccionEmpresa, provinciaEmpresa, localidadEmpresa, tipoEmpresa, subTipoEmpresa, imagenEmpresa, dueño) {
+    return await new Promise<any>(resolve => {
+      this.http.post(this.apiUrl + '/enterprises',
+      {
+        name: nombreEmpresa,
+        address: direccionEmpresa,
+        type: tipoEmpresa,
+        logo: imagenEmpresa,
+        own: dueño,
+        state: provinciaEmpresa,
+        city: localidadEmpresa,
+        subtype: subTipoEmpresa
+      },
+      {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok)
+      })
+        .subscribe(data => {
+          this.token = data;
+          resolve(data);
+        }, err => {
+          console.log(err);
+        });
     });
   }
 
