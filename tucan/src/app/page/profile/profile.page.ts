@@ -74,10 +74,8 @@ export class ProfilePage implements OnInit {
       .then(data=>{
         this.empresa = data
     })
-    // this.actualizarVip();
-    this.getEmpresa();
-    this.registrado=true;
-    this.vip=false;
+    this.actualizarVip();
+    this.router.navigate(['/loggin'])
   }
 
   actualizarVip(){

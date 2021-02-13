@@ -101,7 +101,7 @@ export class RestService {
 
   async actualizarVip(tok: any, id: any) {
     return await new Promise<any>(resolve => {
-      this.http.put(this.apiUrl + '/users/'+id, 
+      this.http.patch(this.apiUrl + '/users/'+id, 
       {
         vip: 1
       },
@@ -145,6 +145,31 @@ export class RestService {
   async createEnterprise(tok: any, nombreEmpresa, direccionEmpresa, provinciaEmpresa, localidadEmpresa, tipoEmpresa, subTipoEmpresa, imagenEmpresa, dueño) {
     return await new Promise<any>(resolve => {
       this.http.post(this.apiUrl + '/enterprises',
+      {
+        name: nombreEmpresa,
+        address: direccionEmpresa,
+        type: tipoEmpresa,
+        logo: imagenEmpresa,
+        own: dueño,
+        state: provinciaEmpresa,
+        city: localidadEmpresa,
+        subtype: subTipoEmpresa
+      },
+      {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok)
+      })
+        .subscribe(data => {
+          this.token = data;
+          resolve(data);
+        }, err => {
+          console.log(err);
+        });
+    });
+  }
+
+  async createOffer(tok: any, nombreEmpresa, direccionEmpresa, provinciaEmpresa, localidadEmpresa, tipoEmpresa, subTipoEmpresa, imagenEmpresa, dueño) {
+    return await new Promise<any>(resolve => {
+      this.http.post(this.apiUrl + '/offers',
       {
         name: nombreEmpresa,
         address: direccionEmpresa,
