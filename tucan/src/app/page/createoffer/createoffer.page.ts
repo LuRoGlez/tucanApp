@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfilePage } from '../profile/profile.page';
 import { RestService } from '../../services/rest.service';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createoffer',
@@ -23,10 +24,13 @@ export class CreateofferPage implements OnInit {
 
   musicaDirecto2: any;
   deporteDirecto2: any;
+  fechaInicio2: any;
+  horaInicio2: any;
+  horaFin2: any;
 
 
   
-  constructor(public restService: RestService, public profilePage: ProfilePage) {
+  constructor(public restService: RestService, public profilePage: ProfilePage, public router: Router) {
     this.getEmpresa()
 
   }
@@ -37,6 +41,23 @@ export class CreateofferPage implements OnInit {
 
 
   crearOferta(){
+    
+    this.ajustarMusicaDeporte()
+    this.ajustarFechas();
+
+    this.restService.createOffer(this.restService.token.success.token, this.nameOferta.value, 
+      this.descripcionOferta.value, this.fechaInicio2, this.horaInicio2, this.horaFin2, 
+      this.musicaDirecto2, this.empresa.id , this.deporteDirecto2)
+      .then(data=>{
+        
+      })
+
+    this.router.navigate(['/loggin'])
+  }
+
+
+
+  ajustarMusicaDeporte(){
     if(this.musicaDirecto.value == ""){
       this.musicaDirecto2 = false
     }
@@ -49,10 +70,20 @@ export class CreateofferPage implements OnInit {
     }else{
       this.deporteDirecto2 = this.deporteDirecto.value
     }
-
-    console.log(this.horaInicio.value, this.musicaDirecto2, this.deporteDirecto2)
   }
 
+  ajustarFechas(){
+    this.fechaInicio2 = this.fechaInicio.value.split('T');
+    this.fechaInicio2 = this.fechaInicio2[0];
+
+    this.horaInicio2 = this.horaInicio.value.split('T');
+    this.horaInicio2 = this.horaInicio2[1].split('.');
+    this.horaInicio2 = this.horaInicio2[0];
+
+    this.horaFin2 = this.horaFin.value.split('T');
+    this.horaFin2 = this.horaFin2[1].split('.');
+    this.horaFin2 = this.horaFin2[0];
+  }
 
   getEmpresa(){
     this.restService.getEnterprises(this.restService.token.success.token).then(data=>{

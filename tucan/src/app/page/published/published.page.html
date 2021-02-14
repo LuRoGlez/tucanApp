@@ -19,8 +19,8 @@
           </ion-col>
           <ion-col size="2" class="third-col">
             <p></p>
-            <ion-card-subtitle>13:00</ion-card-subtitle>
-            <ion-card-subtitle>22:30</ion-card-subtitle>
+            <ion-card-subtitle>{{oferta.start_time| slice:0:5}}</ion-card-subtitle>
+            <ion-card-subtitle>{{oferta.finish_time| slice:0:5}}</ion-card-subtitle>
             <ion-icon name="tv-outline" *ngIf="oferta.sport_direct"></ion-icon>
             <ion-icon name="musical-notes-outline" *ngIf="oferta.music_direct"></ion-icon>
           </ion-col>

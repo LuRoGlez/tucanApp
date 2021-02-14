@@ -81,7 +81,7 @@ export class ProfilePage implements OnInit {
   actualizarVip(){
     console.log(this.restService.token.success.token);
     this.restService.actualizarVip(this.restService.token.success.token, this.restService.token.success.id).then(data=>{
-      console.log(data);
+      
     })
   }
 
@@ -93,7 +93,7 @@ export class ProfilePage implements OnInit {
             this.empresa = this.empresas[i]; 
           }
         }
-        console.log(this.empresa)
+        
     })
   }
 

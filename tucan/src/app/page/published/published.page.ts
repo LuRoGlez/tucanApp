@@ -42,7 +42,7 @@ export class PublishedPage implements OnInit {
           
         }
       }
-      console.log(this.ofertas)
+      
     })
   }
 
