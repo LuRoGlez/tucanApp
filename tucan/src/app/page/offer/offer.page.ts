@@ -3,6 +3,7 @@ import { Map, tileLayer, marker, polyline } from 'leaflet';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { RestService } from 'src/app/services/rest.service';
 
 // import { RestService } from 'src/app/services/rest.service';
 
@@ -21,14 +22,16 @@ export class OfferPage implements OnInit {
   @Input() DescripcionOferta: any;
   @Input() ImagenEmpresa: any;
   @Input() ValoracionOferta: any;
-  
+  @Input() idOferta: any;
+  crearEliminar = 0;
+
 
 
   token: any;
   offer: any;
   enterprise: any;
 
-  constructor(public modalCtrl: ModalController, private geolocation: Geolocation ) {
+  constructor(public modalCtrl: ModalController, private geolocation: Geolocation, public restService: RestService ) {
     
   }
 
@@ -48,6 +51,26 @@ export class OfferPage implements OnInit {
   ionViewDidEnter(){
     this.showMap();
   }
+
+
+
+  voyAIr(){
+    if (this.crearEliminar = 0){
+      this.createWillGo
+      this.crearEliminar = 1
+    }
+    else{
+
+      this.crearEliminar = 0
+    }
+  }
+
+  createWillGo(){
+    this.restService.createWillGo(this.restService.token.success.token,this.idOferta, this.restService.token.success.id);
+  }
+
+
+
 
   showMap() {
     this.map = new Map('myMap').setView([-6.2411137, 106.6284969], 10);

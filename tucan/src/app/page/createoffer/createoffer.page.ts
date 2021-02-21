@@ -52,7 +52,7 @@ export class CreateofferPage implements OnInit {
         
       })
 
-    this.router.navigate(['/loggin'])
+    this.router.navigate(['/profile'])
   }
 
 

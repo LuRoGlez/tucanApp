@@ -5,7 +5,7 @@
 <ion-content>
   <ion-grid>
   <ion-row *ngFor="let oferta of offers">
-    <ion-card *ngIf="oferta.restaurant != null" button="true" class="cardcontent" (click)="presentModal(oferta.restaurant.name, oferta.name, oferta.description, oferta.restaurant.logo, oferta.assessment)" >
+    <ion-card *ngIf="oferta.restaurant != null" button="true" class="cardcontent" (click)="presentModal(oferta.restaurant.name, oferta.name, oferta.description, oferta.restaurant.logo, oferta.assessment, oferta.id)" >
       <ion-card-header class="nopadding">
         <ion-grid>
         <ion-row>

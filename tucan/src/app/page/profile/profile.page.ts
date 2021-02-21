@@ -75,7 +75,7 @@ export class ProfilePage implements OnInit {
         this.empresa = data
     })
     this.actualizarVip();
-    this.router.navigate(['/loggin'])
+    this.router.navigate(['/profile'])
   }
 
   actualizarVip(){

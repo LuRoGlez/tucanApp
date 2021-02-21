@@ -194,6 +194,40 @@ export class RestService {
   }
 
 
+  async createWillGo(tok: any, offer_id, user_id) {
+    return await new Promise<any>(resolve => {
+      this.http.post(this.apiUrl + '/iWillGoes',
+      {
+        offer_id: offer_id,
+        user_id: user_id,
+      },
+      {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok)
+      })
+        .subscribe(data => {
+          this.token = data;
+          resolve(data);
+        }, err => {
+          console.log(err);
+        });
+    });
+  }
+
+  async getInscritos(tok: any, id: any) {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/inscritos/'+id, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  
+
+
 
 
 
