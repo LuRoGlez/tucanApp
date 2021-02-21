@@ -27,21 +27,29 @@ export class ProfilePage implements OnInit {
   tipoEmpresa = new FormControl('');
   subTipoEmpresa = new FormControl('');
   imagenEmpresa = new FormControl('');
-  dueño:any;
+  
+
+  token: any;
+
 
   empresa: any;
   
   empresas : any;
 
 
-
-  constructor(public restService: RestService, public router: Router) {
-    if(this.restService.token.success.vip){
+  ionViewWillEnter(){
+    this.token = this.restService.token.success;
+    if(this.token.vip){
       this.vip=false;
       this.novip=false;
       this.registrado=true;
       this.getEmpresa();
     }
+  }
+
+
+  constructor(public restService: RestService, public router: Router) {
+    
     
 
   }
@@ -65,12 +73,11 @@ export class ProfilePage implements OnInit {
 
   registrar(){
     
-    this.dueño = this.restService.token.success.id;
     let imagenEmpresaBuena = this.imagenEmpresa.value.split('\\');
     imagenEmpresaBuena = imagenEmpresaBuena[imagenEmpresaBuena.length-1]
     
-    this.restService.createEnterprise(this.restService.token.success.token ,this.nombreEmpresa.value, this.direccionEmpresa.value, this.provinciaEmpresa.value, 
-      this.localidadEmpresa.value, this.tipoEmpresa.value, this.subTipoEmpresa.value, imagenEmpresaBuena, this.dueño)
+    this.restService.createEnterprise(this.token.token ,this.nombreEmpresa.value, this.direccionEmpresa.value, this.provinciaEmpresa.value, 
+      this.localidadEmpresa.value, this.tipoEmpresa.value, this.subTipoEmpresa.value, imagenEmpresaBuena, this.token.id)
       .then(data=>{
         this.empresa = data
     })
@@ -79,17 +86,17 @@ export class ProfilePage implements OnInit {
   }
 
   actualizarVip(){
-    console.log(this.restService.token.success.token);
-    this.restService.actualizarVip(this.restService.token.success.token, this.restService.token.success.id).then(data=>{
+    console.log(this.token.token);
+    this.restService.actualizarVip(this.token.token, this.token.id).then(data=>{
       
     })
   }
 
   getEmpresa(){
-    this.restService.getEnterprises(this.restService.token.success.token).then(data=>{
+    this.restService.getEnterprises(this.token.token).then(data=>{
       this.empresas = data.Empresas
       for(let i = 0; i < this.empresas.length ; i++){
-          if(this.restService.token.success.id == this.empresas[i].own){
+          if(this.token.id == this.empresas[i].own){
             this.empresa = this.empresas[i]; 
           }
         }

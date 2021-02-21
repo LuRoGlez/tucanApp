@@ -28,10 +28,17 @@ export class CreateofferPage implements OnInit {
   horaInicio2: any;
   horaFin2: any;
 
+  token: any;
+
+  ionViewWillEnter(){
+    this.token = this.restService.token.success;
+    console.log(this.token)
+    this.getEmpresa()
+  }
+
 
   
   constructor(public restService: RestService, public profilePage: ProfilePage, public router: Router) {
-    this.getEmpresa()
 
   }
 
@@ -45,7 +52,7 @@ export class CreateofferPage implements OnInit {
     this.ajustarMusicaDeporte()
     this.ajustarFechas();
 
-    this.restService.createOffer(this.restService.token.success.token, this.nameOferta.value, 
+    this.restService.createOffer(this.token.token, this.nameOferta.value, 
       this.descripcionOferta.value, this.fechaInicio2, this.horaInicio2, this.horaFin2, 
       this.musicaDirecto2, this.empresa.id , this.deporteDirecto2)
       .then(data=>{
@@ -86,11 +93,12 @@ export class CreateofferPage implements OnInit {
   }
 
   getEmpresa(){
-    this.restService.getEnterprises(this.restService.token.success.token).then(data=>{
+    this.restService.getEnterprises(this.token.token).then(data=>{
       this.empresas = data.Empresas
       for(let i = 0; i < this.empresas.length ; i++){
-          if(this.restService.token.success.id == this.empresas[i].own){
+          if(this.token.id == this.empresas[i].own){
             this.empresa = this.empresas[i]; 
+            console.log(this.empresa)
           }
         }
         
