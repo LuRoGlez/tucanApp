@@ -3,6 +3,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { RestService } from 'src/app/services/rest.service';
+import { Router } from '@angular/router';
+
 
 // import { RestService } from 'src/app/services/rest.service';
 
@@ -32,7 +34,7 @@ export class OfferPage implements OnInit {
   enterprise: any;
   iWIll: any;
 
-  constructor(public modalCtrl: ModalController, public restService: RestService ) {
+  constructor(public modalCtrl: ModalController, public restService: RestService, public router:Router ) {
     
   }
 
@@ -83,7 +85,10 @@ export class OfferPage implements OnInit {
       });
   }
 
-
+  irMapa(){
+    this.router.navigate(['/mapa']);
+    this.dismiss();
+  }
 
 
 

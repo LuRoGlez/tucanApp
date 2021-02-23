@@ -23,4 +23,8 @@ export class MenuComponent implements OnInit {
     
   }
 
+  irFiltros(){
+    this.router.navigate(['/filters'])
+  }
+
 }
