@@ -32,7 +32,7 @@ export class PubPage implements OnInit {
         'DescripcionOferta': descripcion,
         'ImagenEmpresa': imagen,
         'ValoracionOferta': valoracion,
-        'ideOferta': idOferta,
+        'idOferta': idOferta,
         'musicaDirecto': musicaDirecto,
         'deporteDirecto': deporteDirecto
       }

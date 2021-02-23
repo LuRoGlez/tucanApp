@@ -159,7 +159,6 @@ export class RestService {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok)
       })
         .subscribe(data => {
-          this.token = data;
           resolve(data);
         }, err => {
           console.log(err);
@@ -185,7 +184,6 @@ export class RestService {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok)
       })
         .subscribe(data => {
-          this.token = data;
           resolve(data);
         }, err => {
           console.log(err);
@@ -205,7 +203,6 @@ export class RestService {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok)
       })
         .subscribe(data => {
-          this.token = data;
           resolve(data);
         }, err => {
           console.log(err);
@@ -216,6 +213,32 @@ export class RestService {
   async getInscritos(tok: any, id: any) {
     return await new Promise<any>(resolve => {
       this.http.get(this.apiUrl + '/inscritos/'+id, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  async eliminarWIllGo(tok: any, idOffer: any, idUser: any) {
+    return await new Promise<any>(resolve => {
+      this.http.delete(this.apiUrl + '/eliminar/'+idOffer+'.'+idUser, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+  async getWillGoes(tok: any) {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/iWillGoes/', {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
       })
       .subscribe(data => {
