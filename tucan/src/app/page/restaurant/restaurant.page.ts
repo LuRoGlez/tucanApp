@@ -25,7 +25,7 @@ export class RestaurantPage implements OnInit {
     
   }
 
-  async presentModal(nombre, titulo, descripcion, imagen, valoracion, idOferta) {
+  async presentModal(nombre, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {
     const modal = await this.modalController.create({
       component: OfferPage,
       cssClass: 'my-custom-class',
@@ -35,7 +35,9 @@ export class RestaurantPage implements OnInit {
         'DescripcionOferta': descripcion,
         'ImagenEmpresa': imagen,
         'ValoracionOferta': valoracion,
-        'ideOferta': idOferta
+        'ideOferta': idOferta,
+        'musicaDirecto': musicaDirecto,
+        'deporteDirecto': deporteDirecto
       }
     });
     return await modal.present();

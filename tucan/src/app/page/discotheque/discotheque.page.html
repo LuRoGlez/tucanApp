@@ -5,7 +5,7 @@
 <ion-content>
   <ion-grid>
   <ion-row *ngFor="let oferta of offers">
-    <ion-card *ngIf="oferta.discotheque != null" button="true" class="cardcontent" (click)="presentModal(oferta.discotheque.name, oferta.name, oferta.description, oferta.discotheque.logo, oferta.assessment)" >
+    <ion-card *ngIf="oferta.discotheque != null" button="true" class="cardcontent" (click)="presentModal(oferta.discotheque.name, oferta.name, oferta.description, oferta.discotheque.logo, oferta.assessment, oferta.id,oferta.music_direct, oferta.sport_direct)" >
       <ion-card-header class="nopadding">
         <ion-grid>
         <ion-row>
@@ -13,7 +13,7 @@
             <ion-img class=" imagen" src="/assets/imgs/logodiscoteca.jpg">
           </ion-img></ion-col>
           <ion-col size="7">
-            <ion-card-subtitle class="Titulo">{{empresa.name}}</ion-card-subtitle>
+            <ion-card-subtitle class="Titulo">{{oferta.discotheque.name}}</ion-card-subtitle>
             <ion-card-subtitle>{{oferta.name}}</ion-card-subtitle>
           </ion-col>
           <ion-col size="2" class="third-col">

@@ -23,6 +23,9 @@ export class OfferPage implements OnInit {
   @Input() ImagenEmpresa: any;
   @Input() ValoracionOferta: any;
   @Input() idOferta: any;
+  @Input() musicaDirecto: any;
+  @Input() derpoteDirecto: any;
+  
   crearEliminar = 0;
 
 

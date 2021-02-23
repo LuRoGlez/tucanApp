@@ -34,8 +34,15 @@
                 <form>
                     <input type="checkbox" id="iWillGo" class="noShow">
                     <label for="iWillGo" class="iWillGo"><ion-icon name="people-circle-outline"></ion-icon></label>
-                  </form>
+                </form>
+                    
             </ion-col>
+        </ion-row>
+        <ion-row>
+            <span *ngIf="deporteDirecto">Esta oferta dispone de deporte en directo <ion-icon name="tv-outline"></ion-icon></span>
+        </ion-row>
+        <ion-row>
+            <span *ngIf="musicaDirecto">Esta oferta dispone de musica en directo <ion-icon name="musical-notes-outline"></ion-icon></span>
         </ion-row>
         <ion-row>
            <div id="myMap" style="width: 100%; height: 30%;"></div>

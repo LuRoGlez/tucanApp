@@ -22,7 +22,7 @@ export class PubPage implements OnInit {
     this.getOffersBar()
   }
 
-  async presentModal(nombre, titulo, descripcion, imagen, valoracion) {
+  async presentModal(nombre, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {
     const modal = await this.modalController.create({
       component: OfferPage,
       cssClass: 'my-custom-class',
@@ -31,7 +31,10 @@ export class PubPage implements OnInit {
         'TituloOferta': titulo,
         'DescripcionOferta': descripcion,
         'ImagenEmpresa': imagen,
-        'ValoracionOferta': valoracion
+        'ValoracionOferta': valoracion,
+        'ideOferta': idOferta,
+        'musicaDirecto': musicaDirecto,
+        'deporteDirecto': deporteDirecto
       }
     });
     return await modal.present();
