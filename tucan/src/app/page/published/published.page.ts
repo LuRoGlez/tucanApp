@@ -12,6 +12,7 @@ export class PublishedPage implements OnInit {
   empresas: any;
   empresa: any;
   ofertas: any[];
+  iWIll: any;
 
   constructor(public restService: RestService,public profilePage: ProfilePage) { 
     this.getEmpresa()
@@ -45,6 +46,5 @@ export class PublishedPage implements OnInit {
       
     })
   }
-
 
 }

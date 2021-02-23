@@ -33,24 +33,6 @@ h2{
     color: rgba(0, 0, 0, 0.65);
 
 }
-.iWillGo{
-  font-size: xx-large;
-  color: darkgray;
-  background-color: white;
-  
-}
-
-#iWillGo:checked + label{
-  color: #01641c;
-}
-
-.noShow{
-    display:none
-}
-
-#iWillGo:hover + label{
-  color: none;
-}
 
 .head
 {
@@ -77,3 +59,49 @@ ion-img::part(image) {
   border-radius: 5%;
   
 }
+
+
+
+
+.crear{
+  .iWillGo{
+    font-size: xx-large;
+    color: darkgray;
+    background-color: white;
+    
+  }
+  
+  #iWillGo:checked + label{
+    color: #01641c;
+  }
+  
+  .noShow{
+      display:none
+  }
+  
+  #iWillGo:hover + label{
+    color: none;
+  }
+}
+
+.eliminar{
+  .iWillGo{
+    font-size: xx-large;
+    color: #01641c;
+    background-color: white;
+    
+  }
+  
+  #iWillGo:checked + label{
+    color: darkgray;
+  }
+  
+  .noShow{
+      display:none
+  }
+  
+  #iWillGo:hover + label{
+    color: none;
+  }
+}
+

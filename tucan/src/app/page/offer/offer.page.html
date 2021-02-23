@@ -17,7 +17,6 @@
                 </ion-text>
                 <ion-img class="stars" src="/assets/imgs/stars4.PNG"></ion-img>
                 <ion-text>
-                
                     <h2> {{TituloOferta}}</h2>
                 </ion-text>
                  
@@ -26,15 +25,21 @@
         <ion-row>
             <ion-col size="10">
                 <ion-text>
-                
                     <p>{{DescripcionOferta}}</p>
-                  </ion-text>
+                </ion-text>
+                <span *ngIf="iWIll != null">Personas Inscritas:{{this.iWIll.length}}</span>
             </ion-col>
             <ion-col size="2">
-                <form>
-                    <input type="checkbox" id="iWillGo" class="noShow">
+                <form *ngIf="crearEliminar" class="eliminar">
+                    <input type="checkbox" id="iWillGo" class="noShow" (click)="eliminarWillGo()">
                     <label for="iWillGo" class="iWillGo"><ion-icon name="people-circle-outline"></ion-icon></label>
-                  </form>
+                </form>
+                <form *ngIf="crearEliminar == 0" class="crear">
+                    <input type="checkbox" id="iWillGo" class="noShow" (click)="createWillGo()">
+                    <label for="iWillGo" class="iWillGo"><ion-icon name="people-circle-outline"></ion-icon></label>
+                </form>
+                
+                    
             </ion-col>
         </ion-row>
         <ion-row>

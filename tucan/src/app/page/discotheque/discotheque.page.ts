@@ -20,7 +20,7 @@ export class DiscothequePage implements OnInit {
   ngOnInit() {
   }
 
-  async presentModal(nombre, titulo, descripcion, imagen, valoracion) {
+  async presentModal(nombre, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {
     const modal = await this.modalController.create({
       component: OfferPage,
       cssClass: 'my-custom-class',
@@ -29,7 +29,10 @@ export class DiscothequePage implements OnInit {
         'TituloOferta': titulo,
         'DescripcionOferta': descripcion,
         'ImagenEmpresa': imagen,
-        'ValoracionOferta': valoracion
+        'ValoracionOferta': valoracion,
+        'idOferta': idOferta,
+        'musicaDirecto': musicaDirecto,
+        'deporteDirecto': deporteDirecto
       }
     });
     return await modal.present();
