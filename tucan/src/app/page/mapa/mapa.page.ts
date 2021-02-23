@@ -34,7 +34,7 @@ export class MapaPage implements OnInit {
 showMarker(latLong) {
   this.marker = marker(latLong, 15);
   this.changeIcon();
-  icon: this.icon;
+  Icon: this.icon;
   this.marker.addTo(this.map)
   .bindPopup('!Sitio TUCAN!');
   this.map.setView(latLong);
