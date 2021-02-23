@@ -42,7 +42,11 @@ const routes: Routes = [
   {
     path: 'loggin',
     loadChildren: () => import('./page/loggin/loggin.module').then( m => m.LogginPageModule)
+  },  {
+    path: 'mapa',
+    loadChildren: () => import('./page/mapa/mapa.module').then( m => m.MapaPageModule)
   },
+
 
 
 
