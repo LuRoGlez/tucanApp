@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { toLatitudeLongitude } from 'esri/geometry/coordinateFormatter';
 import { RestService } from '../../services/rest.service';
 import { OfferPage } from '../offer/offer.page';
 
