@@ -14,7 +14,8 @@ export class RestaurantPage implements OnInit {
   offers: any;
   token: any;
 
-
+  imagen = "https://allsites.es/tucanapp/public/logos/";
+  
   buscador = true;
 
   constructor(public modalController: ModalController, public restService: RestService) {
@@ -51,10 +52,12 @@ export class RestaurantPage implements OnInit {
   // }
 
   getOffersRestaurant() {
+    console.log('hola');
     if(this.restService.token.success.token != null){
       this.restService.getOffersRestaurant(this.restService.token.success.token)
         .then(data => {
           this.offers = data.Ofertas;
+          console.log(data);
         });
     } 
   }

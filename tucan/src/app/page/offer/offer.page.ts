@@ -34,6 +34,10 @@ export class OfferPage implements OnInit {
   enterprise: any;
   iWIll: any;
 
+  imagen = "https://allsites.es/tucanapp/public/logos/";
+  imagenStar = "/assets/imgs/stars";
+  
+
   constructor(public modalCtrl: ModalController, public restService: RestService, public router:Router ) {
     
   }

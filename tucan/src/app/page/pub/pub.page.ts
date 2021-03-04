@@ -14,12 +14,14 @@ export class PubPage implements OnInit {
   token: any;
   offersPub: any;
 
+  imagen = "https://allsites.es/tucanapp/public/logos/";
+
   constructor(public modalController: ModalController, public restService: RestService) {
     
   }
 
   ngOnInit() {
-    this.getOffersBar()
+    this.getOffersBar();
   }
 
   async presentModal(nombre, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {
@@ -52,6 +54,7 @@ export class PubPage implements OnInit {
       this.restService.getOffersBar(this.restService.token.success.token)
       .then(data => {
         this.offers = data.Ofertas;
+        console.log(data);
       });
     }
   }

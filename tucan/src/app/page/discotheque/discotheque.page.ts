@@ -13,6 +13,8 @@ export class DiscothequePage implements OnInit {
   offers: any;
   token: any;
 
+  imagen = "https://allsites.es/tucanapp/public/logos/";
+  
   constructor(public modalController: ModalController, public restService: RestService) { 
     this.getOffersDiscotheque()
   }

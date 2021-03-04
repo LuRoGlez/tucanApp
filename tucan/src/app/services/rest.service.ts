@@ -85,20 +85,6 @@ export class RestService {
     });
   }
 
-  async getOffersRestaurant(tok: any) {
-    return await new Promise<any>(resolve => {
-      this.http.get(this.apiUrl + '/OfertaRestaurante', 
-      {
-        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
-      })
-      .subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
-
   async actualizarVip(tok: any, id: any) {
     return await new Promise<any>(resolve => {
       this.http.patch(this.apiUrl + '/users/'+id, 
@@ -116,9 +102,10 @@ export class RestService {
     });
   }
 
-  async getOffersDicotheque(tok: any) {
+  async getOffersRestaurant(tok: any) {
     return await new Promise<any>(resolve => {
-      this.http.get(this.apiUrl + '/OfertaDiscoteca', {
+      this.http.get(this.apiUrl + '/OfertaRestaurante', 
+      {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
       })
       .subscribe(data => {
@@ -141,7 +128,20 @@ export class RestService {
       });
     });
   }
-
+  
+  async getOffersDicotheque(tok: any) {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/OfertaDiscoteca', {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  
   async createEnterprise(tok: any, nombreEmpresa, direccionEmpresa, provinciaEmpresa, localidadEmpresa, tipoEmpresa, subTipoEmpresa, imagenEmpresa, dueño) {
     return await new Promise<any>(resolve => {
       this.http.post(this.apiUrl + '/enterprises',
