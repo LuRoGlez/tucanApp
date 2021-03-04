@@ -54,7 +54,7 @@ export class PubPage implements OnInit {
       this.restService.getOffersBar(this.restService.token.success.token)
       .then(data => {
         this.offers = data.Ofertas;
-        console.log(data);
+        console.log(this.offers);
       });
     }
   }

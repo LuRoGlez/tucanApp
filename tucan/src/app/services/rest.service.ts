@@ -9,6 +9,9 @@ export class RestService {
   apiUrl = 'http://tucanapp.allsites.es/public';
   token: any;
   vip: any;
+  empresaActualLatitud: any;
+  empresaActualLongitud: any;
+  empresaActualNombre: any;
 
   constructor(private http: HttpClient) { }
 

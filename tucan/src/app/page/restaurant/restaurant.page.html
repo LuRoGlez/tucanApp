@@ -3,7 +3,8 @@
 <ion-content>
   <ion-grid>
   <ion-row *ngFor="let oferta of offers">
-    <ion-card *ngIf="oferta.restaurant != null" button="true" class="cardcontent" (click)="presentModal(oferta.restaurant.name, oferta.name, oferta.description, oferta.restaurant.logo, oferta.assessment, oferta.id, oferta.music_direct, oferta.sport_direct)" >
+    <ion-card *ngIf="oferta.restaurant != null" button="true" class="cardcontent"
+        (click)="presentModal(oferta.restaurant.name, oferta.restaurant.latitud, oferta.restaurant.longitud, oferta.name, oferta.description, oferta.restaurant.logo, oferta.assessment, oferta.id, oferta.music_direct, oferta.sport_direct)" >
       <ion-card-header class="nopadding">
         <ion-grid>
         <ion-row>

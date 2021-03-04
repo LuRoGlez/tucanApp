@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { toLatitudeLongitude } from 'esri/geometry/coordinateFormatter';
 import { RestService } from '../../services/rest.service';
 import { OfferPage } from '../offer/offer.page';
 
@@ -26,12 +27,14 @@ export class RestaurantPage implements OnInit {
     
   }
 
-  async presentModal(nombre, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {
+  async presentModal(nombre, latitud, longitud, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {
     const modal = await this.modalController.create({
       component: OfferPage,
       cssClass: 'my-custom-class',
       componentProps: {
         'nombreEmpresa': nombre,
+        'latitudEmpresa': latitud,
+        'longitudEmpresa': longitud,
         'TituloOferta': titulo,
         'DescripcionOferta': descripcion,
         'ImagenEmpresa': imagen,

@@ -14,9 +14,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./offer.page.scss'],
 })
 export class OfferPage implements OnInit {
-  
-
   @Input() nombreEmpresa: any;
+  @Input() latitudEmpresa: any;
+  @Input() longitudEmpresa: any;
   @Input() TituloOferta: any;
   @Input() DescripcionOferta: any;
   @Input() ImagenEmpresa: any;
@@ -27,8 +27,6 @@ export class OfferPage implements OnInit {
   
   crearEliminar = 0;
 
-
-
   token: any;
   offer: any;
   enterprise: any;
@@ -37,16 +35,13 @@ export class OfferPage implements OnInit {
   imagen = "https://allsites.es/tucanapp/public/logos/";
   imagenStar = "/assets/imgs/stars";
   
-
-  constructor(public modalCtrl: ModalController, public restService: RestService, public router:Router ) {
-    
-  }
+  constructor(public modalCtrl: ModalController,
+              public restService: RestService,
+              public router:Router ) { }
 
   ionViewWillEnter(){
     this.mostrarWillGo()
-
   }
-
 
   ngOnInit() {
   }
@@ -60,13 +55,15 @@ export class OfferPage implements OnInit {
   }
 
   /**metodos mapa */
-
   
-
-
-
-
-
+  irMapa(){
+    this.restService.empresaActualLatitud = this.latitudEmpresa;
+    this.restService.empresaActualLongitud = this.longitudEmpresa;
+    this.restService.empresaActualNombre = this.nombreEmpresa;
+    this.router.navigate(['/mapa']);
+    this.dismiss();
+  }
+    
   createWillGo(){
     this.restService.createWillGo(this.restService.token.success.token,this.idOferta, this.restService.token.success.id);
   }
@@ -82,16 +79,10 @@ export class OfferPage implements OnInit {
         for(let i = 0; i<this.iWIll.length; i++){
           if(this.iWIll[i].user_id == this.restService.token.success.id){
             this.crearEliminar = 1
-            
           }
         }
         console.log(data.Ir);
       });
-  }
-
-  irMapa(){
-    this.router.navigate(['/mapa']);
-    this.dismiss();
   }
 
 
