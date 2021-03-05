@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Pipe } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { RestService } from '../../services/rest.service';
 import { OfferPage } from '../offer/offer.page';
-
+import { Offer } from '../../models/offer.model';
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.page.html',
@@ -10,20 +10,20 @@ import { OfferPage } from '../offer/offer.page';
 })
 export class RestaurantPage implements OnInit {
 
-
-  offers: any;
+  offersfiltered: Offer[] = [];
+  // offers: Offer[] = [];
   token: any;
+  textoBuscar = '';
 
   imagen = "https://allsites.es/tucanapp/public/logos/";
-  
-  buscador = true;
 
-  constructor(public modalController: ModalController, public restService: RestService) {
-    this.getOffersRestaurant()
-  }
-
-  ngOnInit() {
-    
+  constructor(public modalController: ModalController, 
+              public restService: RestService) { }
+                  
+  ngOnInit() { }
+                  
+  ionViewWillEnter() {
+    this.getOffersRestaurant();
   }
 
   async presentModal(nombre, latitud, longitud, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {
@@ -46,22 +46,20 @@ export class RestaurantPage implements OnInit {
     return await modal.present();
   }
 
-  // hacerLogin() {
-  //   this.restService.login()
-  //     .then(data => {
-  //       this.token = data;
-  //     });
-  // }
-
   getOffersRestaurant() {
-    console.log('hola');
     if(this.restService.token.success.token != null){
       this.restService.getOffersRestaurant(this.restService.token.success.token)
         .then(data => {
-          this.offers = data.Ofertas;
-          console.log(data);
+          this.offersfiltered = data.Ofertas.filter((offer) => {
+            return (offer.restaurant != null);
+          });
+          console.log(this.offersfiltered);
         });
     } 
   }
 
+  buscarOferta(event) {
+    const ciudad = event.target.value;
+    this.textoBuscar = ciudad;
+  }
 }

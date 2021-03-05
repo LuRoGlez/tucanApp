@@ -1,31 +1,45 @@
-<app-header title="Discoteca"></app-header>
+<ion-header no-border>
+  <ion-toolbar class="head">
+    <ion-img src="/assets/imgs/logotucan.png" slot="start" class="logo"></ion-img>
+    <ion-buttons slot="end">
+      <ion-menu-button autohide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-searchbar class="buscador"
+                   animated
+                   placeholder="Eligir ciudad"
+                   (ionChange)="buscarOferta($event)">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
   <ion-grid>
-  <ion-row *ngFor="let oferta of offers">
-    <ion-card *ngIf="oferta.discotheque != null" button="true" class="cardcontent" (click)="presentModal(oferta.discotheque.name, oferta.name, oferta.description, oferta.discotheque.logo, oferta.assessment, oferta.id,oferta.music_direct, oferta.sport_direct)" >
-      <ion-card-header class="nopadding">
-        <ion-grid>
-        <ion-row>
-          <ion-col size="3">
-            <ion-img class=" imagen" [src]="imagen + oferta.discotheque.logo">
-          </ion-img></ion-col>
-          <ion-col size="7">
-            <ion-card-subtitle class="Titulo">{{oferta.discotheque.name}}</ion-card-subtitle>
-            <ion-card-subtitle class="description">{{oferta.name}}</ion-card-subtitle>
-          </ion-col>
-          <ion-col size="2" class="third-col">
-            <p></p>
-            <ion-card-subtitle>{{oferta.start_time| slice:0:5}}</ion-card-subtitle>
-            <ion-card-subtitle>{{oferta.finish_time| slice:0:5}}</ion-card-subtitle>
-            <ion-icon name="tv-outline" *ngIf="oferta.sport_direct"></ion-icon>
-            <ion-icon name="musical-notes-outline" *ngIf="oferta.music_direct"></ion-icon>
-          </ion-col>
-        </ion-row> 
-      </ion-grid>
-      </ion-card-header>
-    </ion-card>
-  </ion-row>
-</ion-grid>
+    <ion-row *ngFor="let oferta of offersfiltered | filtroOfDiscoteca:textoBuscar">
+      <ion-card button="true" class="cardcontent"
+          (click)="presentModal(oferta.discotheque.name, oferta.discotheque.latitud, oferta.discotheque.longitud, oferta.name, oferta.description, oferta.discotheque.logo, oferta.assessment, oferta.id,oferta.music_direct, oferta.sport_direct)" >
+        <ion-card-header class="nopadding">
+          <ion-grid>
+          <ion-row>
+            <ion-col size="3">
+              <ion-img class=" imagen" [src]="imagen + oferta.discotheque.logo">
+            </ion-img></ion-col>
+            <ion-col size="7">
+              <ion-card-subtitle class="Titulo">{{oferta.discotheque.name}}</ion-card-subtitle>
+              <ion-card-subtitle class="description">{{oferta.name}}</ion-card-subtitle>
+              <ion-card-subtitle class="description">({{oferta.discotheque.city}})</ion-card-subtitle>
+            </ion-col>
+            <ion-col size="2" class="third-col">
+              <p></p>
+              <ion-card-subtitle>{{oferta.start_time| slice:0:5}}</ion-card-subtitle>
+              <ion-card-subtitle>{{oferta.finish_time| slice:0:5}}</ion-card-subtitle>
+              <ion-icon name="tv-outline" *ngIf="oferta.sport_direct"></ion-icon>
+              <ion-icon name="musical-notes-outline" *ngIf="oferta.music_direct"></ion-icon>
+            </ion-col>
+          </ion-row> 
+        </ion-grid>
+        </ion-card-header>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
 </ion-content>
   

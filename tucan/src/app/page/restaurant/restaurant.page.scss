@@ -29,6 +29,40 @@ ion-img::part(image) {
     size: 100%
   }
 
-  .description{
+.description{
       max-height: 50px;
-  }
+}
+
+.head
+{
+    --background: #24b34b;
+}
+.buscador{
+    margin-top: 2px;
+    margin-right: 0;
+    border: 0;
+    width: auto;
+    padding: 0;
+    height: 5px;
+    
+
+}
+
+.tools{
+    color:rgba(255, 255, 255, 0.63);
+    font-size: 200%;
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+ion-menu-button{
+    color:rgba(255, 255, 255, 0.89);
+    padding: 0;
+    margin-left: 0;
+
+}

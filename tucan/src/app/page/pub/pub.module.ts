@@ -8,9 +8,11 @@ import { PubPageRoutingModule } from './pub-routing.module';
 
 import { PubPage } from './pub.page';
 import { ComponentsModule } from '../../components/components.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   imports: [
+    PipesModule,
     CommonModule,
     FormsModule,
     IonicModule,
