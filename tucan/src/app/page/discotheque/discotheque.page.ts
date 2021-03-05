@@ -20,10 +20,11 @@ export class DiscothequePage implements OnInit {
   constructor(public modalController: ModalController, 
               public restService: RestService) { }
               
-  ngOnInit() { }
+  ngOnInit() { 
+    this.getOffersDiscotheque()
+  }
   
   ionViewWillEnter() { 
-    this.getOffersDiscotheque()
   }
 
   async presentModal(nombre, latitud, longitud, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {

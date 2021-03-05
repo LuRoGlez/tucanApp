@@ -20,10 +20,11 @@ export class RestaurantPage implements OnInit {
   constructor(public modalController: ModalController, 
               public restService: RestService) { }
                   
-  ngOnInit() { }
+  ngOnInit() { 
+    this.getOffersRestaurant();
+  }
                   
   ionViewWillEnter() {
-    this.getOffersRestaurant();
   }
 
   async presentModal(nombre, latitud, longitud, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {

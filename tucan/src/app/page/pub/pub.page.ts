@@ -20,10 +20,11 @@ export class PubPage implements OnInit {
   constructor(public modalController: ModalController,
               public restService: RestService) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.getOffersBar();
+  }
 
   ionViewWillEnter() {
-    this.getOffersBar();
   }
 
   async presentModal(nombre, latitud, longitud, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {
