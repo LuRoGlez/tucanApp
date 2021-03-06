@@ -48,6 +48,11 @@ const routes: Routes = [
     path: 'mapa',
     loadChildren: () => import('./page/mapa/mapa.module').then( m => m.MapaPageModule)
   },
+  {
+    path: 'mapa-todos',
+    loadChildren: () => import('./page/mapa-todos/mapa-todos.module').then( m => m.MapaTodosPageModule)
+  },
+
 
 
 

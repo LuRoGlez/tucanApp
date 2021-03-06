@@ -84,10 +84,4 @@ export class OfferPage implements OnInit {
         console.log(data.Ir);
       });
   }
-
-
-
-  
-
-
 }

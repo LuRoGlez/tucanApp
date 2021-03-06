@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { RestService } from '../../services/rest.service';
 import { OfferPage } from '../offer/offer.page';
 import { Offer } from '../../models/offer.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.page.html',
@@ -11,14 +12,14 @@ import { Offer } from '../../models/offer.model';
 export class RestaurantPage implements OnInit {
 
   offersfiltered: Offer[] = [];
-  // offers: Offer[] = [];
   token: any;
   textoBuscar = '';
 
   imagen = "https://allsites.es/tucanapp/public/logos/";
 
   constructor(public modalController: ModalController, 
-              public restService: RestService) { }
+              public restService: RestService,
+              public router:Router) { }
                   
   ngOnInit() { 
     this.getOffersRestaurant();
@@ -62,5 +63,10 @@ export class RestaurantPage implements OnInit {
   buscarOferta(event) {
     const ciudad = event.target.value;
     this.textoBuscar = ciudad;
+  }
+
+  mostrarOfertasMapa() {
+    this.restService.offersfiltered = this.offersfiltered;
+    this.router.navigate(['/mapa-todos']);
   }
 }

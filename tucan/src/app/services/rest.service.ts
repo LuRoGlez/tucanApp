@@ -13,6 +13,7 @@ export class RestService {
   empresaActualLatitud: any;
   empresaActualLongitud: any;
   empresaActualNombre: any;
+  offersfiltered: Offer[] = [];
 
   constructor(private http: HttpClient) { }
 

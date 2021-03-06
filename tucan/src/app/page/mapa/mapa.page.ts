@@ -23,8 +23,8 @@ export class MapaPage implements OnInit {
   ngOnInit() {
     // this.latidud = this.ar.snapshot.paramMap.get("latitudEmpresa");
     // this.longitud = this.ar.snapshot.paramMap.get("longitudEmpresa");
-    console.log('Lat: ', this.restService.empresaActualLatitud);
-    console.log('Long: ', this.restService.empresaActualLongitud);
+    // console.log('Lat: ', this.restService.empresaActualLatitud);
+    // console.log('Long: ', this.restService.empresaActualLongitud);
   }
 
   ionViewDidEnter(){
