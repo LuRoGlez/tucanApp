@@ -1,12 +1,6 @@
 <app-header-offer title="Filters"></app-header-offer>
 
 <ion-content>
-<form class="distanciaForm">
-  <fieldset>
-  <legend>Distancia</legend>
-  <ion-range value="20" min="0" max="100" pin="true">
-  </ion-range></fieldset>
-</form>
 <ion-grid class="mtv">
   <ion-row>
     <ion-col size="6">
@@ -63,6 +57,11 @@
         
       </li>
       <li>
+        <ion-checkbox color ="success" id="moderna" name="tipo" value="moderna"></ion-checkbox>
+        <label for="moderna">Cocina moderna</label>
+        
+      </li>
+      <li>
         <ion-checkbox color ="success" id="tradicional" name="tipo" value="tradicional"></ion-checkbox>
         <label for="tradicional">Cocina tradicional</label>
         
@@ -77,35 +76,13 @@
         <label for="taperia">Tapería</label>
         
       </li>
+      <li>
+        <ion-checkbox color ="success" id="chiringuito" name="tipo" value="chiringuito"></ion-checkbox>
+        <label for="chiringuito">Chiringuito</label>
+        
+      </li>
   </ul>
   </fieldset>
 </form>
-<form>
-  <fieldset class="filtrosForm">
-    <legend>Filtros Pub & Discoteca</legend>
-    <ul>
-      <li>
-        <ion-checkbox color ="success" id="billar" name="tipo" value="billar"></ion-checkbox>
-        <label for="billar">Billar</label>
-        
-      </li>
-      <li>
-        <ion-checkbox color ="success" id="dardos" name="tipo" value="dardos"></ion-checkbox>
-        <label for="dardos">Dardos</label>
-        
-      </li>
-      <li>
-        <ion-checkbox color ="success" id="futbolin" name="tipo" value="futbolin"></ion-checkbox>
-        <label for="futbolin">Futbolín</label>
-        
-      </li>
-      <li>
-        <ion-checkbox color ="success" id="baile" name="tipo" value="baile"></ion-checkbox>
-        <label for="baile">Clases de baile</label>
-        
-      </li>
-    
-  </ul>
-  </fieldset>
-</form>
+
 </ion-content>

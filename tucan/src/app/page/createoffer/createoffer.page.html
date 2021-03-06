@@ -7,7 +7,7 @@
       <input type="text" name="titulo"  placeholder="Título de la oferta" required="true" [formControl]="nameOferta">
       <ion-item>
         <ion-label>Fecha</ion-label>
-        <ion-datetime value="2021-03-06" placeholder="Select Date" required="true" [formControl]="fechaInicio" min="2021" max="2025"></ion-datetime>
+        <ion-datetime value="2021-03-06"  required="true" [formControl]="fechaInicio" min="2021" max="2025"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Hora Inicio</ion-label>
@@ -26,16 +26,6 @@
           <input type="checkbox" id="tv" class="noShow" [formControl]="deporteDirecto">
           <label for="tv" class="icons"><ion-icon name="tv-outline" ></ion-icon></label>
       </legend>
-
-      <ion-select name="subtipo" placeholder="Datos extra" class="select">
-
-          <ion-select-option>Billar</ion-select-option>
-          
-          <ion-select-option>Dardos</ion-select-option>
-          
-          <ion-select-option>Clases de baile</ion-select-option>
-          
-          </ion-select>
 
       <p>
         <label for="enviar" class="crear" button="true" (click)="crearOferta()">CREAR OFERTA</label>  
