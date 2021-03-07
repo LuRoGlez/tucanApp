@@ -73,6 +73,7 @@ export class OfferPage implements OnInit {
   }
 
   mostrarWillGo(){
+
     this.restService.getInscritos(this.restService.token.success.token, this.idOferta)
       .then(data =>{
         this.iWIll = data.Ir
@@ -81,7 +82,7 @@ export class OfferPage implements OnInit {
             this.crearEliminar = 1
           }
         }
-        console.log(data.Ir);
+        
       });
   }
 }

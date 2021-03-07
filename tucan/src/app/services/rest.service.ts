@@ -254,7 +254,39 @@ export class RestService {
     });
   }
   
+  async valorar(tok: any, idOffer: any, idUser: any, value: any) {
+    return await new Promise<any>(resolve => {
+      this.http.patch(this.apiUrl + '/valorar/'+idOffer+'.'+idUser, 
+      {
+        value: value
+      },
+      {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 
+  async estrellasOferta(tok: any, idOffer: any, value: any) {
+    return await new Promise<any>(resolve => {
+      this.http.patch(this.apiUrl + '/offers/'+idOffer, 
+      {
+        assessment: value
+      },
+      {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 
 
 
