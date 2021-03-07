@@ -44,18 +44,17 @@
     <ion-grid>
         <ion-row *ngIf="empresa != null">
             <ion-col size="4">
-                <ion-img alt="logo empresa" src="/assets/imgs/logorestaurante.jpg"></ion-img>
+                <ion-img class=" imagen" [src]="imagen + empresa.logo"></ion-img>
             </ion-col>
             <ion-col>
                 <h2>{{empresa.name}}</h2>
-                <p>Correo usuario</p>
             </ion-col>
         </ion-row>
         <ion-row class="botonesperfil">
             <p>
                 <label  class="crear" (click)="crearOferta()">CREAR OFERTA</label>  
-              </p>
-              <span class="iraofertas" button="true" (click)="ofertasPublicadas()">OFERTAS PUBLICADAS</span>
+            </p>
+            <span class="iraofertas" button="true" (click)="ofertasPublicadas()">OFERTAS PUBLICADAS</span>
         </ion-row>
     </ion-grid>
 </ion-content>

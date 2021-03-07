@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
+import { RestService } from 'src/app/services/rest.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,10 +9,13 @@ import {Router, RouterLink} from "@angular/router";
 })
 export class MenuComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  kms: number;
+
+  constructor(public router: Router,
+              public restService: RestService) { }
 
   ngOnInit() {
-
+    this.kms = this.restService.kms;
   }
 
   irPerfil(){
@@ -25,6 +29,11 @@ export class MenuComponent implements OnInit {
 
   irFiltros(){
     this.router.navigate(['/filters'])
+  }
+
+  cambiarDistancia(event) {
+    this.restService.kms = event.detail.value;
+    this.kms = event.detail.value;
   }
 
 }

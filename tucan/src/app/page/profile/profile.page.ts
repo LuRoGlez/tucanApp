@@ -19,6 +19,7 @@ export class ProfilePage implements OnInit {
   novip = true;
   registrado = false;
 
+  imagen = "https://allsites.es/tucanapp/public/logos/";
 
   nombreEmpresa = new FormControl('');
   direccionEmpresa = new FormControl('');
@@ -28,14 +29,10 @@ export class ProfilePage implements OnInit {
   subTipoEmpresa = new FormControl('');
   imagenEmpresa = new FormControl('');
   
-
   token: any;
 
-
-  empresa: any;
-  
+  empresa: any;  
   empresas : any;
-
 
   ionViewWillEnter(){
     this.token = this.restService.token.success;
@@ -47,21 +44,14 @@ export class ProfilePage implements OnInit {
     }
   }
 
-
-  constructor(public restService: RestService, public router: Router) {
-    
-    
-
-  }
+  constructor(public restService: RestService, 
+              public router: Router) { }
 
   ngOnInit() {
     
   }
-  
-  
 
   cambiarVip(){
-    
     if(this.vip==true){
      this.vip=false;
      this.novip=true;
@@ -72,7 +62,6 @@ export class ProfilePage implements OnInit {
   }
 
   registrar(){
-    
     let imagenEmpresaBuena = this.imagenEmpresa.value.split('\\');
     imagenEmpresaBuena = imagenEmpresaBuena[imagenEmpresaBuena.length-1]
     
@@ -88,7 +77,6 @@ export class ProfilePage implements OnInit {
   actualizarVip(){
     console.log(this.token.token);
     this.restService.actualizarVip(this.token.token, this.token.id).then(data=>{
-      
     })
   }
 
@@ -99,8 +87,7 @@ export class ProfilePage implements OnInit {
           if(this.token.id == this.empresas[i].own){
             this.empresa = this.empresas[i]; 
           }
-        }
-        
+        } 
     })
   }
 

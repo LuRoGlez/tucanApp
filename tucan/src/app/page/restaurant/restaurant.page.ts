@@ -14,18 +14,24 @@ export class RestaurantPage implements OnInit {
   offersfiltered: Offer[] = [];
   token: any;
   textoBuscar = '';
+  kms: number;
 
   imagen = "https://allsites.es/tucanapp/public/logos/";
 
   constructor(public modalController: ModalController, 
               public restService: RestService,
-              public router:Router) { }
+              public router:Router) { 
+                console.log('C');
+              }
                   
   ngOnInit() { 
     this.getOffersRestaurant();
+    console.log('ngOI');
   }
                   
   ionViewWillEnter() {
+    this.kms = this.restService.kms;
+    console.log('iVWE');
   }
 
   async presentModal(nombre, latitud, longitud, titulo, descripcion, imagen, valoracion, idOferta, musicaDirecto, deporteDirecto) {

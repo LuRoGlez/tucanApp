@@ -11,11 +11,28 @@
     <ion-list>
       <ion-menu-toggle>
         <ion-item button="true" (click)="irFiltros()">
-        <ion-icon name="checkmark-done-circle-outline"></ion-icon><span>FILTROS</span></ion-item>
+          <ion-icon name="checkmark-done-circle-outline"></ion-icon><span>FILTROS</span>
+        </ion-item>
         <ion-item button="true" href="/myoferts">
-        <ion-icon name="pricetags-outline"></ion-icon><span>MIS OFERTAS</span></ion-item> 
+          <ion-icon name="pricetags-outline"></ion-icon><span>MIS OFERTAS</span>
+        </ion-item> 
         <ion-item button="true" (click)="irPerfil()">
-        <ion-icon name="person-circle-outline"></ion-icon><span>PERFIL</span></ion-item>
+          <ion-icon name="person-circle-outline"></ion-icon><span>PERFIL</span>
+        </ion-item>
+        <ion-item-divider color="primary">
+          <ion-label>
+            Distancia en Kms: {{ kms }}
+          </ion-label>
+        </ion-item-divider>
+        <ion-item no-border>
+          <ion-range min="1"
+            max="10"
+            step="1"
+            value={{kms}}
+            snaps color="black"
+            (ionChange)="cambiarDistancia($event)">
+          </ion-range>
+        </ion-item>
       </ion-menu-toggle>
     </ion-list>
   </ion-content>
