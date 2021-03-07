@@ -27,6 +27,10 @@ export class MenuComponent implements OnInit {
     
   }
 
+  irOfertas(){
+    this.router.navigate(['/myoferts']);
+  }
+
   irFiltros(){
     this.router.navigate(['/filters'])
   }

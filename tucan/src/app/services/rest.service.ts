@@ -91,6 +91,19 @@ export class RestService {
     });
   }
 
+  async getOffer(tok: any, id) {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/offers/' + id, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
   async actualizarVip(tok: any, id: any) {
     return await new Promise<any>(resolve => {
       this.http.patch(this.apiUrl + '/users/'+id, 
@@ -289,6 +302,18 @@ export class RestService {
     });
   }
 
+  async getOfertasAsociadas(tok: any, idUser: any) {
+    return await new Promise<any>(resolve => {
+      this.http.get(this.apiUrl + '/OfertasPersona/'+idUser, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
+      })
+      .subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 
 
 
