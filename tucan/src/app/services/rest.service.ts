@@ -308,7 +308,7 @@ export class RestService {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok),
       })
       .subscribe(data => {
-        console.log('Servicio (data): ', data);
+        // console.log('Servicio (data): ', data);
         resolve(data);
       }, err => {
         console.log(err);
