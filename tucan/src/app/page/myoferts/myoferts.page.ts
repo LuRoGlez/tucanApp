@@ -29,19 +29,25 @@ export class MyofertsPage implements OnInit {
   cargarIr(){
     this.restService.getOfertasAsociadas(this.restService.token.success.token, this.restService.token.success.id)
     .then(data=>{
-      this.iWill=data.Ir;
-      for(let i = 0; i<this.iWill.length; i++){
-        this.cargarOferta(this.iWill[i].offer_id);
-      }
+      console.log(data.Ir.Oferta);
+      // this.offers.push(data.Ir.Oferta);
 
+      
+      // console.log('cargarIr (data): ', data);
+      // this.iWill=data.Ir;
+      // for(let i = 0; i<this.iWill.length; i++){
+      //   // console.log(this.iWill[i].offer_id);
+      //   // this.cargarOferta(this.iWill[i].offer_id);
+      // }
     })
   }
 
-  cargarOferta(idOferta){
-    this.restService.getOffer(this.restService.token.success.token, idOferta)
-    .then(data=>{
-      console.log(data.Oferta.enterprise);
-      this.offers.push(data.Oferta);
-    })
-  }
+  // cargarOferta(idOferta){
+  //   console.log(idOferta);
+  //   this.restService.getOffer(this.restService.token.success.token, idOferta)
+  //   .then(data=>{
+  //     console.log(data.Oferta.enterprise.name);
+  //     this.offers.push(data.Oferta);
+  //   })
+  // }
 }
