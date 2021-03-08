@@ -2,6 +2,8 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { RestService } from '../../services/rest.service';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Geolocalizacion } from '../../models/geoloc.model';
 
 @Component({
   selector: 'app-profile',
@@ -28,6 +30,8 @@ export class ProfilePage implements OnInit {
   tipoEmpresa = new FormControl('');
   subTipoEmpresa = new FormControl('');
   imagenEmpresa = new FormControl('');
+  latitudEmpresa = "Latitud";
+  longitudEmpresa = "Longitud";
   
   token: any;
 
@@ -45,7 +49,8 @@ export class ProfilePage implements OnInit {
   }
 
   constructor(public restService: RestService, 
-              public router: Router) { }
+              public router: Router,
+              private http: HttpClient) { }
 
   ngOnInit() {
     
@@ -97,6 +102,27 @@ export class ProfilePage implements OnInit {
 
   ofertasPublicadas(){
     this.router.navigate(['/published']);
+  }
+
+  async addrSearch(value: string) {
+    return await new Promise<any>(resolve => {
+      // Hacemos la llamada a una API que nos devuelve los datos de geolocalización de una dirección
+      this.http.get<Geolocalizacion>(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${this.direccionEmpresa.value}, ${value}`)
+      .subscribe(data => {
+        if (data[0] === undefined) {
+          // Si no hay resultados lo indicamos en el HTML
+          document.getElementById('results').innerHTML = "Lo siento no existen resultados";
+        }
+        else {
+          document.getElementById('results').innerHTML = "";
+          this.latitudEmpresa = data[0].lat.toString();
+          this.longitudEmpresa = data[0].lon.toString();
+          resolve(data);
+        }
+      }, err => {
+        console.log(err);
+      });
+    });
   }
 
 }

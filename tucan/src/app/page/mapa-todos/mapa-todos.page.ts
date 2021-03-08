@@ -34,7 +34,7 @@ export class MapaTodosPage implements OnInit {
 
   showMap() {
     this.map = new Map('myMap').setView([36.514846075279856, -6.275898951215205], 15);
-    tileLayer(`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`).addTo(this.map);
+    tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png`).addTo(this.map);
     this.getPositions();
   }
 
