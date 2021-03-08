@@ -23,6 +23,7 @@
           </ion-col>
           <ion-col size="2" class="third-col">
             <p></p>
+            <ion-card-subtitle class="date">{{oferta.start_date}}</ion-card-subtitle>
             <ion-card-subtitle>{{oferta.start_time| slice:0:5}}</ion-card-subtitle>
             <ion-card-subtitle>{{oferta.finish_time| slice:0:5}}</ion-card-subtitle>
             <ion-icon name="tv-outline" *ngIf="oferta.sport_direct"></ion-icon>
