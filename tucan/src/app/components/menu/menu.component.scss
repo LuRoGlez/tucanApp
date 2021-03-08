@@ -10,3 +10,26 @@ ion-img{
     margin-top: 30px;
     margin:50px;
 }
+
+fieldset{
+    color:rgba(0, 0, 0, 0.65);
+    border-radius: 5%;
+    margin-bottom: 1px;
+}
+
+legend{
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.616);
+    font-size: 12px;
+
+}
+
+
+    ion-range{
+        --bar-background-active: #01641c;
+        --bar-background: #01641b6e;
+        --pin-background: #01641c
+    } 
+.slide{
+    text-align: center;
+}

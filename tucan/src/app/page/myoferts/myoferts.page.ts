@@ -10,6 +10,7 @@ import { OfferEnterprise } from 'src/app/models/offer_enterprise.model';
 export class MyofertsPage implements OnInit {
 
   iWill: any;
+  Ir:any;
   offers: OfferEnterprise[] = [];
 
   imagen = "https://allsites.es/tucanapp/public/logos/";
@@ -48,4 +49,33 @@ export class MyofertsPage implements OnInit {
   //     this.offers.push(data.Oferta);
   //   })
   // }
+
+
+  valorar(idOferta, value){
+    this.restService.valorar(this.restService.token.success.token, idOferta, this.restService.token.success.id, value)
+    .then(data=>{
+      console.log(data)
+      this.actualizarValoracion(idOferta);
+    })
+  }
+
+  actualizarValoracion(idOferta){
+    let contador = 0;
+    let value = 0;
+    this.restService.getInscritos(this.restService.token.success.token, idOferta)
+    .then(data=>{
+      this.Ir = data.Ir;
+      for(let i = 0; i<this.Ir.length; i++){
+        if(this.Ir[i].value != null){
+          contador +=1;
+          value += this.Ir[i].value
+        }
+      }
+      value = value / contador;
+      this.restService.estrellasOferta(this.restService.token.success.token, idOferta, value)
+      .then(data=>{
+        console.log(data)
+      })
+    })
+  }
 }
