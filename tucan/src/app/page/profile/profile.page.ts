@@ -70,12 +70,14 @@ export class ProfilePage implements OnInit {
   }
 
   registrar(){
-    let imagenEmpresaBuena = this.imagenEmpresa.value.split('\\');
-    imagenEmpresaBuena = imagenEmpresaBuena[imagenEmpresaBuena.length-1]
+    // let imagenEmpresaBuena = this.imagenEmpresa.value.split('\\');
+    // imagenEmpresaBuena = imagenEmpresaBuena[imagenEmpresaBuena.length-1]
     
     this.restService.createEnterprise(this.token.token ,this.nombreEmpresa.value, this.direccionEmpresa.value, this.provinciaEmpresa.value, 
-      this.localidadEmpresa.value, this.tipoEmpresa.value, this.subTipoEmpresa.value, imagenEmpresaBuena, this.token.id)
+      this.localidadEmpresa.value, this.tipoEmpresa.value, this.subTipoEmpresa.value, 'logorestaurante.jpg', this.token.id,
+      this.latitudEmpresa, this.longitudEmpresa)
       .then(data=>{
+        console.log(data);
         this.empresa = data
     })
     this.actualizarVip();
@@ -83,7 +85,6 @@ export class ProfilePage implements OnInit {
   }
 
   actualizarVip(){
-    console.log(this.token.token);
     this.restService.actualizarVip(this.token.token, this.token.id).then(data=>{
     })
   }
