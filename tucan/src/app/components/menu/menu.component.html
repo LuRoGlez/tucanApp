@@ -19,19 +19,18 @@
         <ion-item button="true" (click)="irPerfil()">
           <ion-icon name="person-circle-outline"></ion-icon><span>PERFIL</span>
         </ion-item>
-        <ion-item-divider color="primary">
-          <ion-label>
-            Distancia en Kms: {{ kms }}
-          </ion-label>
-        </ion-item-divider>
-        <ion-item no-border>
-          <ion-range min="1"
+        <ion-item>
+            <article class="slide">
+              
+             <span>DISTANCIA MÁXIMA: {{ kms }}KMs</span>
+             <ion-range min="1"
             max="10"
             step="1"
             value={{kms}}
-            snaps color="black"
             (ionChange)="cambiarDistancia($event)">
           </ion-range>
+            
+            </article>
         </ion-item>
       </ion-menu-toggle>
     </ion-list>
