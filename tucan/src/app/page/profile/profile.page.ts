@@ -84,9 +84,14 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['/profile'])
   }
 
+
+
+  ///////////////////////////////////////////////
+  // QUITAR COMENTARIO DE LA SIGUIENTE FUNCIÓN //
+  ///////////////////////////////////////////////
   actualizarVip(){
-    this.restService.actualizarVip(this.token.token, this.token.id).then(data=>{
-    })
+    // this.restService.actualizarVip(this.token.token, this.token.id).then(data=>{
+    // })
   }
 
   getEmpresa(){
