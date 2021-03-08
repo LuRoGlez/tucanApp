@@ -5,9 +5,21 @@
         <div class="formulario">
         <form>
             <input type="text" name="nombre"  placeholder="Nombre de la empresa" [formControl]="nombreEmpresa">
-            <input type="text" name="direccion"  placeholder="Dirección" [formControl]="direccionEmpresa">
-            <input type="text" name="state"  placeholder="provincia" [formControl]="provinciaEmpresa">
-            <input type="text" name="localidad"  placeholder="Localidad" [formControl]="localidadEmpresa">
+            <input type="text" name="direccion"  placeholder="Dirección completa de la empresa" [formControl]="direccionEmpresa">
+
+            <input type="text" name="state"  placeholder="Provincia" [formControl]="provinciaEmpresa">
+            <input type="text"
+                   name="localidad"
+                   placeholder="Localidad"
+                   [formControl]="localidadEmpresa"
+                   (input)="addrSearch($event.target.value)">
+            
+            <input type="text" name="latitud"  placeholder="Latitud" [value]=latitudEmpresa>
+            <input type="text" name="longitud"  placeholder="Longitud" [value]="longitudEmpresa">
+
+            <div id="results">
+            </div>
+            
             <legend><p>Tipo de negocio</p>
                 <p class="radio">
               <input type="radio" name="type" value="Restaurant" [formControl]="tipoEmpresa"> Restaurante

@@ -41,7 +41,7 @@ export class MapaPage implements OnInit {
   getPositions() {
     this.map = new Map('myMap')
       .setView([this.restService.empresaActualLatitud, this.restService.empresaActualLongitud], 15);
-    tileLayer(`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`).addTo(this.map);
+    tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png`).addTo(this.map);
     this.geolocation.getCurrentPosition({
       enableHighAccuracy: true
     }).then((res) => {
