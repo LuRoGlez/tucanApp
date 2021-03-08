@@ -28,10 +28,8 @@
                 </ion-select>
             </legend>
 
-            <ion-select name="subtipo" placeholder="Indica el tipo de Restaurante" class="select" [formControl]="subTipoEmpresa">
-                <ion-select-option>Restaurante Chino</ion-select-option>
-                <ion-select-option>Pizzería</ion-select-option>
-                <ion-select-option>tralala</ion-select-option>
+            <ion-select name="subtipo" placeholder="Selecciona una categoría" class="select" [formControl]="subTipoEmpresa">
+                <ion-select-option *ngFor='let subtipo of subtipos'>{{subtipo}}</ion-select-option>
             </ion-select>
                 <label for="img" class="botonimg">Añadir logo</label>
                 <input id="img" type="file" name="imagen" [formControl]="imagenEmpresa" accept=".jpg, .jpeg, .png">
