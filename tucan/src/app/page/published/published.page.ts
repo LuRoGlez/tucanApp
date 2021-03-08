@@ -13,6 +13,7 @@ export class PublishedPage implements OnInit {
   empresa: any;
   ofertas: any[];
   iWIll: any;
+  estrellas: any;
 
   constructor(public restService: RestService,public profilePage: ProfilePage) { 
     this.getEmpresa()
@@ -40,7 +41,21 @@ export class PublishedPage implements OnInit {
       for(let i = 0; i<data.Ofertas.length; i++){
         if(data.Ofertas[i].enterprise_id == this.empresa.id){
           this.ofertas.push(data.Ofertas[i]);
-          
+          if(data.Ofertas[1].assesment <1.5){
+            console.log(data.Ofertas[1].assesment)
+          }
+          else if(data.Ofertas[1].assesment >= 1.5 && data.Ofertas[1].assesment < 2.5){
+            console.log(data.Ofertas[1].assesment)
+          }
+          else if(data.Ofertas[1].assesment >= 2.5 && data.Ofertas[1].assesment < 3.5){
+            console.log(data.Ofertas[1].assesment)
+          }
+          else if(data.Ofertas[1].assesment >= 3.5 && data.Ofertas[1].assesment < 4.5){
+            console.log(data.Ofertas[1].assesment)
+          }
+          else if(data.Ofertas[1].assesment >= 4.5){
+            console.log(data.Ofertas[1].assesment)
+          }
         }
       }
       
