@@ -104,25 +104,16 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['/published']);
   }
 
-  // chooseAddr(lat1, lng1)
-  // {
-  //   console.log('hola');
-  //   this.latitudEmpresa = lat1.toFixed(8);
-  //   this.longitudEmpresa = lng1.toFixed(8);
-  // }
-
   async addrSearch(value: string) {
     return await new Promise<any>(resolve => {
-      // this.http.get<Geolocalizacion>('https://nominatim.openstreetmap.org/search?format=json&limit=1&q=avenida%20maría%20auxiliadora%207,%20cádiz')
-      // console.log(this.direccionEmpresa.value);
+      // Hacemos la llamada a una API que nos devuelve los datos de geolocalización de una dirección
       this.http.get<Geolocalizacion>(`https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${this.direccionEmpresa.value}, ${value}`)
       .subscribe(data => {
         if (data[0] === undefined) {
-          // console.log('error');
+          // Si no hay resultados lo indicamos en el HTML
           document.getElementById('results').innerHTML = "Lo siento no existen resultados";
         }
         else {
-          // console.log(data[0]);
           document.getElementById('results').innerHTML = "";
           this.latitudEmpresa = data[0].lat.toString();
           this.longitudEmpresa = data[0].lon.toString();
@@ -132,40 +123,6 @@ export class ProfilePage implements OnInit {
         console.log(err);
       });
     });
-
-    // const inp = this.direccionEmpresa;
-    // const xmlhttp = new XMLHttpRequest();
-    // const url = "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=" + inp.value;
-    // xmlhttp.onreadystatechange = function()
-    // {
-    //   if (this.readyState == 4 && this.status == 200)
-    //   {
-    //     const myArr = JSON.parse(this.responseText);
-    //     //  this.myFunction(myArr);
-
-
-    //     let out = "<br />";
-      
-    //     if(myArr.length > 0)
-    //     {
-          
-    //       for(let i = 0; i < myArr.length; i++)
-    //       {
-    //         out += "<div onclick='chooseAddr(" + myArr[i].lat + ", " + myArr[i].lon + ");return false;'>" + myArr[i].display_name + "</div>";
-
-    //       //   out += '<ion-button class="address" (click)="chooseAddr(' + myArr[i].lat + ', ' + myArr[i].lon + ')">' + myArr[i].display_name + '</ion-button>';
-    //       //   console.log(out);
-    //       }
-    //       document.getElementById('results').innerHTML = out;
-    //     }
-    //     else
-    //     {
-    //       document.getElementById('results').innerHTML = "Sorry, no results...";
-    //     }
-    //   }
-    // };
-    // xmlhttp.open("GET", url, true);
-    // xmlhttp.send();
   }
 
 }
