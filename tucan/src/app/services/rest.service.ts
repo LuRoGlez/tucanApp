@@ -161,7 +161,10 @@ export class RestService {
     });
   }
   
-  async createEnterprise(tok: any, nombreEmpresa, direccionEmpresa, provinciaEmpresa, localidadEmpresa, tipoEmpresa, subTipoEmpresa, imagenEmpresa, dueño) {
+  async createEnterprise(tok: any, nombreEmpresa, direccionEmpresa, 
+                provinciaEmpresa, localidadEmpresa, tipoEmpresa, 
+                subTipoEmpresa, imagenEmpresa, dueño,
+                latitudEmpresa, longitudEmpresa) {
     return await new Promise<any>(resolve => {
       this.http.post(this.apiUrl + '/enterprises',
       {
@@ -170,9 +173,11 @@ export class RestService {
         type: tipoEmpresa,
         logo: imagenEmpresa,
         own: dueño,
-        state: provinciaEmpresa,
         city: localidadEmpresa,
-        subtype: subTipoEmpresa
+        state: provinciaEmpresa,
+        subtype: subTipoEmpresa,
+        latitud: latitudEmpresa,
+        longitud: longitudEmpresa
       },
       {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok)
