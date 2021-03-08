@@ -35,8 +35,7 @@ export class ProfilePage implements OnInit {
   
   token: any;
 
-  subtipos = ['No Restaurante', 'Restaurante Chino', 'Restaurante Mexicano', 'Restaurante asiatico', 'Restaurante Italiano', 'Hamburguesas',
-  'Bocadillos', 'Pizza', 'Cocina Modeerna', 'Cocina tradicional', 'Kebab', 'Tapería', 'Chiringuito']
+  subtipos = ['Subtipos no Disponibles'];
 
   empresa: any;  
   empresas : any;
@@ -57,6 +56,16 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  mostrar(){
+    if(this.tipoEmpresa.value != "Restaurant"){
+      this.subtipos = ['Subtipos no Disponibles'];
+    }
+    else{
+      this.subtipos = ['Restaurante Chino', 'Restaurante Mexicano', 'Restaurante asiatico', 'Restaurante Italiano', 'Hamburguesas',
+        'Bocadillos', 'Pizza', 'Cocina Modeerna', 'Cocina tradicional', 'Kebab', 'Tapería', 'Chiringuito'];
+    }
   }
 
   cambiarVip(){

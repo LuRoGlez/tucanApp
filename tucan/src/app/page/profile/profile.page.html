@@ -21,12 +21,11 @@
             </div>
             
             
-                <ion-select name="subtipo" placeholder="Selecciona el tipo de negocio" class="select" [formControl]="tipoEmpresa">
-                    <ion-select-option value="restaurant">Restaurante</ion-select-option>
-                    <ion-select-option value="bar">Café & Copas</ion-select-option>
-                    <ion-select-option value="discotheque">Discoteca</ion-select-option>
-                </ion-select>
-            
+            <ion-select name="subtipo" placeholder="Selecciona el tipo de negocio" class="select" (ionChange)="mostrar()" [formControl]="tipoEmpresa">
+                <ion-select-option value="Restaurant">Restaurante</ion-select-option>
+                <ion-select-option value="Bar">Café & Copas</ion-select-option>
+                <ion-select-option value="Discotheque">Discoteca</ion-select-option>
+            </ion-select>
 
             <ion-select name="subtipo" placeholder="Selecciona una categoría" class="select" [formControl]="subTipoEmpresa">
                 <ion-select-option *ngFor='let subtipo of subtipos'>{{subtipo}}</ion-select-option>
