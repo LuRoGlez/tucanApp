@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../../services/rest.service';
-import { Offer } from '../../models/offer.model';
+import { OfferEnterprise } from 'src/app/models/offer_enterprise.model';
 
 @Component({
   selector: 'app-myoferts',
@@ -10,38 +10,42 @@ import { Offer } from '../../models/offer.model';
 export class MyofertsPage implements OnInit {
 
   iWill: any;
-  offers: Offer[] = [];
+  offers: OfferEnterprise[] = [];
 
   imagen = "https://allsites.es/tucanapp/public/logos/";
 
   constructor(public restService: RestService) { }
 
   ionViewWillEnter(){
-    this.cargarIr()
   }
-
+  
   ngOnInit() {
+    this.cargarIr();
   }
-
-
-
 
   cargarIr(){
     this.restService.getOfertasAsociadas(this.restService.token.success.token, this.restService.token.success.id)
     .then(data=>{
-      this.iWill=data.Ir;
-      for(let i = 0; i<this.iWill.length; i++){
-        this.cargarOferta(this.iWill[i].offer_id);
-      }
+      this.offers = data.Ir;
+      console.log(this.offers);
+      // this.offers.push(data.Ir.Oferta);
 
+      
+      // console.log('cargarIr (data): ', data);
+      // this.iWill=data.Ir;
+      // for(let i = 0; i<this.iWill.length; i++){
+      //   // console.log(this.iWill[i].offer_id);
+      //   // this.cargarOferta(this.iWill[i].offer_id);
+      // }
     })
   }
 
-  cargarOferta(idOferta){
-    this.restService.getOffer(this.restService.token.success.token, idOferta)
-    .then(data=>{
-      console.log(data.Oferta.enterprise);
-      this.offers.push(data.Oferta);
-    })
-  }
+  // cargarOferta(idOferta){
+  //   console.log(idOferta);
+  //   this.restService.getOffer(this.restService.token.success.token, idOferta)
+  //   .then(data=>{
+  //     console.log(data.Oferta.enterprise.name);
+  //     this.offers.push(data.Oferta);
+  //   })
+  // }
 }

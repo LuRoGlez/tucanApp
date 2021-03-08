@@ -11,8 +11,8 @@
             
           </ion-col>
           <ion-col size="7">
-            <ion-card-subtitle color="dark" class="Titulo">{{offer.name}}</ion-card-subtitle>
-            <ion-card-subtitle>{{offer.name}}</ion-card-subtitle>
+            <ion-card-subtitle color="dark" class="Titulo">{{offer.oferta.enterprise.name}}</ion-card-subtitle>
+            <ion-card-subtitle>{{offer.oferta.name}}</ion-card-subtitle>
             <form>
               <p class="valoracion">
               
@@ -31,9 +31,9 @@
           </form>
           </ion-col>
           <ion-col size="2" class="third-col">
-            <ion-card-subtitle>{{offer.start_time}}</ion-card-subtitle>
-            <ion-card-subtitle>{{offer.start_time|slice:0:5}}</ion-card-subtitle>
-            <ion-card-subtitle>{{offer.finish_time|slice:0:5}}</ion-card-subtitle>
+            <ion-card-subtitle>{{offer.oferta.start_date}}</ion-card-subtitle>
+            <ion-card-subtitle>{{offer.oferta.start_time|slice:0:5}}</ion-card-subtitle>
+            <ion-card-subtitle>{{offer.oferta.finish_time|slice:0:5}}</ion-card-subtitle>
             
           </ion-col>
         </ion-row>
