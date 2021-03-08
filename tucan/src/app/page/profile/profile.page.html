@@ -21,14 +21,14 @@
             </div>
             
             <legend><p>Tipo de negocio</p>
-                <p class="radio">
-              <input type="radio" name="type" value="Restaurant" [formControl]="tipoEmpresa"> Restaurante
-              <input type="radio" name="type" value="Bar" [formControl]="tipoEmpresa"> Cafe & Copas
-              <input type="radio" name="type" value="Discotheque" [formControl]="tipoEmpresa"> Discoteca
-            </p>
+                <ion-select name="subtipo" placeholder="Selecciona una categoría" class="select" [formControl]="tipoEmpresa">
+                    <ion-select-option>Restaurante</ion-select-option>
+                    <ion-select-option>Café & Copas</ion-select-option>
+                    <ion-select-option>Discoteca</ion-select-option>
+                </ion-select>
             </legend>
 
-            <ion-select name="subtipo" placeholder="Selecciona una categoría" class="select" [formControl]="subTipoEmpresa">
+            <ion-select name="subtipo" placeholder="Indica el tipo de Restaurante" class="select" [formControl]="subTipoEmpresa">
                 <ion-select-option>Restaurante Chino</ion-select-option>
                 <ion-select-option>Pizzería</ion-select-option>
                 <ion-select-option>tralala</ion-select-option>
