@@ -35,7 +35,7 @@ export class ProfilePage implements OnInit {
   
   token: any;
 
-  subtipos = ['Restaurante Chino', 'Restaurante Mexicano', 'Restaurante asiatico', 'Restaurante Italiano', 'Hamburguesas',
+  subtipos = ['No Restaurante', 'Restaurante Chino', 'Restaurante Mexicano', 'Restaurante asiatico', 'Restaurante Italiano', 'Hamburguesas',
   'Bocadillos', 'Pizza', 'Cocina Modeerna', 'Cocina tradicional', 'Kebab', 'Tapería', 'Chiringuito']
 
   empresa: any;  
