@@ -67,8 +67,8 @@ export class MyofertsPage implements OnInit {
       this.Ir = data.Ir;
       for(let i = 0; i<this.Ir.length; i++){
         if(this.Ir[i].value != null){
-          contador +=1;
-          value += this.Ir[i].value
+          contador = contador + 1;
+          value = value + this.Ir[i].value
         }
       }
       value = value / contador;
