@@ -31,11 +31,11 @@ fieldset{
   }
   
   #music:checked + label {
-    color: #01641c;
+    color: #24b34b;
   }
 
   #tv:checked + label{
-    color: #01641c;
+    color: #24b34b;
   }
 
   .noShow{
@@ -56,14 +56,14 @@ fieldset{
  }
 
   ion-checkbox{
-    --background-checked:#01641c;
-    --border-color-checked: #01641c;
+    --background-checked:#24b34b;
+    --border-color-checked: #24b34b;
   }
 
   ion-range{
-    --bar-background-active: #01641c;
+    --bar-background-active: #24b34b;
     --bar-background: #01641b6e;
-    --pin-background: #01641c;
+    --pin-background: #24b34b;
 } 
 .slide{
 
@@ -172,6 +172,9 @@ ul{
 }
 
 .aplicar{
-  --background-color: white;
-  color: green
+  font-family: 'Montserrat', sans-serif;
+  --background: white;
+  color: #24b34b;
+  font-weight: 600;
+  text-transform: capitalize;
 }
