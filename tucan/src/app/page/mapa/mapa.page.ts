@@ -39,7 +39,7 @@ export class MapaPage implements OnInit {
   }
   
   getPositions() {
-    this.mapOffer = new Map('myMapOffer)
+    this.mapOffer = new Map('myMapOffer')
       .setView([this.restService.empresaActualLatitud, this.restService.empresaActualLongitud], 18);
     tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png`).addTo(this.mapOffer);
     this.geolocation.getCurrentPosition({
