@@ -14,7 +14,7 @@ export class RestService {
   empresaActualLongitud: any;
   empresaActualNombre: any;
   offersfiltered: Offer[] = [];
-  kms = 3;
+  kms = 1;
 
   constructor(private http: HttpClient) { }
 
