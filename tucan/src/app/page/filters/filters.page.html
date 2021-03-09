@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content>
+  <form>
  
   <section>
     <h2>Eventos</h2>
@@ -15,14 +16,14 @@
     
         <div class="eventos">
         <label class="music">Evento TV</label>
-        <input type="checkbox" id="tv" class="noShow">
+        <input type="checkbox" id="tv" class="noShow" name="sport_direct" value="1">
         <label for="tv" class="icons"><ion-icon name="tv-outline" ></ion-icon></label>
     </div>
       
       
         <div class="eventos">
         <label class="music">Música en directo</label>
-        <input type="checkbox" id="music" class="noShow">
+        <input type="checkbox" id="music" class="noShow" name="music_direct" value="1">
         <label for="music" class="icons"><ion-icon name="musical-notes-outline"></ion-icon></label>
       </div>
     
@@ -30,70 +31,72 @@
   </section>
 <section class="tipos">
 <h2>Tipo de local</h2>
-<form>
+
     <ul class="flex">
       <div>
       <li>
-        <ion-checkbox color ="success" id="chino" name="tipo" value="chino"></ion-checkbox>
-        <label for="chino">chino</label>
+        <ion-checkbox color ="success" id="Chino" name="tipo" value="Chino"></ion-checkbox>
+        <label for="Chino">chino</label>
       </li>
       <li>
-        <ion-checkbox color ="success" id="mexicano" name="tipo" value="mexicano"></ion-checkbox>
-        <label for="mexicano">mexicano</label>
+        <ion-checkbox color ="success" id="Mexicano" name="tipo" value="Mexicano"></ion-checkbox>
+        <label for="Mexicano">mexicano</label>
       </li>
       <li>
-        <ion-checkbox color ="success" id="asiatico" name="tipo" value="asiatico"></ion-checkbox>
-        <label for="asiatico">asiatico</label>
+        <ion-checkbox color ="success" id="Asiatico" name="tipo" value="Asiatico"></ion-checkbox>
+        <label for="Asiatico">asiatico</label>
       </li>
     </div>
     <div>
       <li>
-        <ion-checkbox color ="success" id="italiano" name="tipo" value="italiano"></ion-checkbox>
-        <label for="italiano">italiano</label>
+        <ion-checkbox color ="success" id="Italiano" name="tipo" value="Italiano"></ion-checkbox>
+        <label for="Italiano">italiano</label>
       </li>
     
       <li>
-        <ion-checkbox color ="success" id="Hamburguesas" name="tipo" value="Hamburguesas"></ion-checkbox>
-        <label for="hamburgesas">burger</label>
+        <ion-checkbox color ="success" id="Burger" name="tipo" value="Burger"></ion-checkbox>
+        <label for="Burger">Burger</label>
       </li>
       <li>
-        <ion-checkbox color ="success" id="bocadillos" name="tipo" value="bocadillos">"></ion-checkbox>
-        <label for="bocadilos">Bocata</label>
+        <ion-checkbox color ="success" id="Bocatas" name="tipo" value="Bocatas">"></ion-checkbox>
+        <label for="Bocatas">Bocata</label>
       </li>
     </div>
     <div>
       <li>
-        <ion-checkbox color ="success" id="pizza" name="tipo" value="pizza"></ion-checkbox>
-        <label for="pizza">Pizza</label>
+        <ion-checkbox color ="success" id="Pizza" name="tipo" value="Pizza"></ion-checkbox>
+        <label for="Pizza">Pizza</label>
       </li>
       <li>
-        <ion-checkbox color ="success" id="moderna" name="tipo" value="moderna"></ion-checkbox>
-        <label for="moderna">moderna</label>
+        <ion-checkbox color ="success" id="Moderna" name="tipo" value="Moderna"></ion-checkbox>
+        <label for="Moderna">Moderna</label>
       </li>
     
       <li>
-        <ion-checkbox color ="success" id="tradicional" name="tipo" value="tradicional"></ion-checkbox>
-        <label for="tradicional">tradicional</label>
+        <ion-checkbox color ="success" id="Tradicional" name="tipo" value="Tradicional"></ion-checkbox>
+        <label for="Tradicional">Tradicional</label>
       </li>
     </div>
     <div>
       <li>
-        <ion-checkbox color ="success" id="kebab" name="tipo" value="kebab"></ion-checkbox>
-        <label for="kebab">kebab</label>
+        <ion-checkbox color ="success" id="Kebab" name="tipo" value="Kebab"></ion-checkbox>
+        <label for="Kebab">kebab</label>
       </li>
       <li>
-        <ion-checkbox color ="success" id="taperia" name="tipo" value="taperia"></ion-checkbox>
-        <label for="taperia">Tapas</label>
+        <ion-checkbox color ="success" id="Tapas" name="tipo" value="Tapas"></ion-checkbox>
+        <label for="Tapas">Tapas</label>
       </li>
       <li>
-        <ion-checkbox color ="success" id="chiringuito" name="tipo" value="chiringuito"></ion-checkbox>
-        <label for="chiringuito">Chiringuito</label>
+        <ion-checkbox color ="success" id="Chiringuito" name="tipo" value="Chiringuito"></ion-checkbox>
+        <label for="Chiringuito">Chiringuito</label>
       </li>
     </div>
   </ul>
-</form>
-<ion-button class="aplicar">Aplicar</ion-button>
+  <ion-button class="aplicar">Aplicar</ion-button>
+
+
 </section>
+</form>
 
   <section class="slide">
     <h2>Distancia máx: <span class="km">{{ kms }} Kms</span></h2>
