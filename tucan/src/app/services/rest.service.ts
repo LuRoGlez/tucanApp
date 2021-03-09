@@ -13,7 +13,9 @@ export class RestService {
   empresaActualLatitud: any;
   empresaActualLongitud: any;
   empresaActualNombre: any;
-  offersfiltered: Offer[] = [];
+  offersRestfiltered: Offer[] = [];
+  offersBarfiltered: Offer[] = [];
+  offersDiscofiltered: Offer[] = [];
   kms = 1;
   
   distanciaModificada = 1;
