@@ -8,7 +8,7 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./mapa.page.scss'],
 })
 export class MapaPage implements OnInit {
-  map:Map;
+  mapOffer:Map;
   marker1:any;
   marker2:any;
   latlong=[];
@@ -39,9 +39,9 @@ export class MapaPage implements OnInit {
   }
   
   getPositions() {
-    this.map = new Map('myMap')
+    this.mapOffer = new Map('myMapOffer)
       .setView([this.restService.empresaActualLatitud, this.restService.empresaActualLongitud], 18);
-    tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png`).addTo(this.map);
+    tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png`).addTo(this.mapOffer);
     this.geolocation.getCurrentPosition({
       enableHighAccuracy: true
     }).then((res) => {
@@ -68,7 +68,7 @@ export class MapaPage implements OnInit {
     // console.log(latlong);
     const markEmpresa = [this.restService.empresaActualLatitud, this.restService.empresaActualLongitud];
     this.marker1 = marker(markEmpresa, {icon: myIconEmpresa});
-    this.marker1.addTo(this.map).bindPopup(this.restService.empresaActualNombre);
+    this.marker1.addTo(this.mapOffer).bindPopup(this.restService.empresaActualNombre);
     // this.marker2 = marker(latlong);
     // this.marker2.addTo(this.map).bindPopup('Aquí estás tú');
 
