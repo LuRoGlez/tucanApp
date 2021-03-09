@@ -70,7 +70,19 @@ fieldset{
   }
 
   ion-range{
-      --bar-background-active: #01641c;
-      --bar-background: #01641b6e;
-      --pin-background: #01641c
-  }
+    --bar-background-active: #01641c;
+    --bar-background: #01641b6e;
+    --pin-background: #01641c;
+} 
+.slide{
+width: 100%;
+padding-top: 10px;
+}
+
+  span{
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.616);
+    font-size: 12px;
+    margin-left: 15px;
+}
+
