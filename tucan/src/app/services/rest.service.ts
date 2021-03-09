@@ -325,6 +325,37 @@ export class RestService {
     });
   }
 
+  async formulario(tok: any, chino?, mexicano?, asiatico?, italiano?, burger?, bocatas?, pizza?
+    , moderna?, tradicional?, kebab?, tapas?, chiringuito?, sport_direct?, music_direct?) {
+    return await new Promise<any>(resolve => {
+      this.http.post(this.apiUrl + '/filtros',
+      {
+        Chino: chino,
+        Mexicano: mexicano,
+        Asiatico: asiatico,
+        Italiano: italiano,
+        Burger: burger,
+        Bocatas: bocatas,
+        Pizza: pizza,
+        Moderna: moderna,
+        Tradicional: tradicional,
+        Kebab: kebab,
+        Tapas: tapas,
+        Chiringuito: chiringuito,
+        sport_direct: sport_direct,
+        music_direct: music_direct
+      },
+      {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + tok)
+      })
+        .subscribe(data => {
+          resolve(data);
+        }, err => {
+          console.log(err);
+        });
+    });
+  }
+
 
 
 }

@@ -63,8 +63,8 @@ export class ProfilePage implements OnInit {
       this.subtipos = ['Subtipos no Disponibles'];
     }
     else{
-      this.subtipos = ['Restaurante Chino', 'Restaurante Mexicano', 'Restaurante asiatico', 'Restaurante Italiano', 'Hamburguesas',
-        'Bocadillos', 'Pizza', 'Cocina Modeerna', 'Cocina tradicional', 'Kebab', 'Tapería', 'Chiringuito'];
+      this.subtipos = ['Chino', 'Mexicano', 'Asiatico', 'Italiano', 'Burger',
+        'Bocatas', 'Pizza', 'Moderna', 'Tradicional', 'Kebab', 'Tapas', 'Chiringuito'];
     }
   }
 
