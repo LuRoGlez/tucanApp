@@ -29,7 +29,7 @@ export class MapaTodosPage implements OnInit {
               }
               
   ionViewDidEnter(){
-    this.offersfiltered = this.restService.offersfiltered
+    this.offersfiltered = this.restService.offersRestfiltered
     this.kms = this.restService.kms;
     this.showMap();
   }
