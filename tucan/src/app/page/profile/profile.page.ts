@@ -90,11 +90,12 @@ export class ProfilePage implements OnInit {
         this.empresa = data
     })
     this.actualizarVip();
-    this.router.navigate(['/tab-principal'])
+    this.router.navigate(['/loggin'])
   }
 
   actualizarVip(){
     this.restService.actualizarVip(this.token.token, this.token.id).then(data=>{
+
     })
   }
 
