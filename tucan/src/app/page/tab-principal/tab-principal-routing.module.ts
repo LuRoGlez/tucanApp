@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('./../../page/pub/pub.module').then( m => m.PubPageModule)
       },
       {
+        path: 'filters',
+        loadChildren: () => import('./../../page/filters/filters.module').then( m => m.FiltersPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tab-principal/restaurant',
         pathMatch: 'full'

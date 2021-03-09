@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from 'src/app/services/rest.service';
 
 @Component({
   selector: 'app-filters',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersPage implements OnInit {
 
-  constructor() { }
+  kms: number;
+
+  constructor(public restService: RestService) { }
 
   ngOnInit() {
+    this.kms = this.restService.kms;
+  }
+
+  cambiarDistancia(event) {
+    this.restService.kms = event.detail.value;
+    this.kms = event.detail.value;
   }
 
 }

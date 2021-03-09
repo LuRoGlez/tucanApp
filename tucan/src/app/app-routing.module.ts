@@ -51,7 +51,11 @@ const routes: Routes = [
   {
     path: 'mapa-todos',
     loadChildren: () => import('./page/mapa-todos/mapa-todos.module').then( m => m.MapaTodosPageModule)
+  },  {
+    path: 'settings',
+    loadChildren: () => import('./page/settings/settings.module').then( m => m.SettingsPageModule)
   },
+
 
 
 

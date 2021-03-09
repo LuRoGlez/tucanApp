@@ -28,7 +28,15 @@ export class RestaurantPage implements OnInit {
     this.getOffersRestaurant();
     console.log('ngOI');
   }
-                  
+  
+  ionViewDidEnter() {
+    console.log('Hola desde DidEnter');
+  }
+
+  ionViewBeforeEnter() {
+    console.log('iVBE');
+  }
+
   ionViewWillEnter() {
     this.kms = this.restService.kms;
     console.log('iVWE');
@@ -61,7 +69,7 @@ export class RestaurantPage implements OnInit {
           this.offersfiltered = data.Ofertas.filter((offer) => {
             return (offer.restaurant != null);
           });
-          console.log(this.offersfiltered);
+          // console.log(this.offersfiltered);
         });
     } 
   }

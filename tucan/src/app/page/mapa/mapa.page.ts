@@ -40,7 +40,7 @@ export class MapaPage implements OnInit {
   
   getPositions() {
     this.map = new Map('myMap')
-      .setView([this.restService.empresaActualLatitud, this.restService.empresaActualLongitud], 15);
+      .setView([this.restService.empresaActualLatitud, this.restService.empresaActualLongitud], 18);
     tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png`).addTo(this.map);
     this.geolocation.getCurrentPosition({
       enableHighAccuracy: true
@@ -55,23 +55,19 @@ export class MapaPage implements OnInit {
   }
 
   showMarker(latlong) {
-    const myIcon = icon({
-      iconUrl: 'assets/icon/logotucan.ico',
-      iconSize: [21, 21],
-      iconAnchor: [21, 21],
-      popupAnchor: [-3, -21],
-      // iconUrl: 'my-icon.png',
-      // shadowUrl: 'assets/icon/logotucan.ico',
-      // iconSize: [38, 95],
-      // iconAnchor: [22, 94],
-      // popupAnchor: [-3, -76],
-      // shadowSize: [68, 95],
-      // shadowAnchor: [22, 94]
+    const myIconEmpresa = icon({
+      iconUrl: 'assets/icon/marker-icon-2x.png',
+      shadowUrl: 'assets/icon/marker-shadow.png',
+      iconSize: [32, 46],
+      iconAnchor: [32, 46],
+      popupAnchor: [-16, -41],
+      shadowSize: [0, 0],
+      shadowAnchor: [0, 0]
     });
 
-    console.log(latlong);
+    // console.log(latlong);
     const markEmpresa = [this.restService.empresaActualLatitud, this.restService.empresaActualLongitud];
-    this.marker1 = marker(markEmpresa, {icon: myIcon});
+    this.marker1 = marker(markEmpresa, {icon: myIconEmpresa});
     this.marker1.addTo(this.map).bindPopup(this.restService.empresaActualNombre);
     // this.marker2 = marker(latlong);
     // this.marker2.addTo(this.map).bindPopup('Aquí estás tú');
