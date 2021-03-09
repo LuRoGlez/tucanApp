@@ -42,7 +42,7 @@ export class PubPage implements OnInit {
       this.restService.distanciaModificada=0;
       let pausa = setTimeout( () => {
         this.filtrarOfertas();
-      }, 400);
+      }, 600);
     // }
   }
 

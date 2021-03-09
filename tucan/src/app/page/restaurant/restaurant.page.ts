@@ -42,7 +42,7 @@ export class RestaurantPage implements OnInit {
       this.restService.distanciaModificada=0;
       let pausa = setTimeout( () => {
         this.filtrarOfertas();
-      }, 400);
+      }, 600);
     // }
   }
 
@@ -92,6 +92,8 @@ export class RestaurantPage implements OnInit {
     
     // Inicializamos el array
     this.offersDistancia= [];
+    
+    console.log(this.offersfiltered);
     // Ponemos los marcadores de las empresas de las ofertas
     this.offersfiltered.forEach((offer) => {
       const markEmpresa = [offer.restaurant.latitud, offer.restaurant.longitud];
