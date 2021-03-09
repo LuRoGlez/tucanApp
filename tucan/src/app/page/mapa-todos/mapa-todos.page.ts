@@ -11,7 +11,7 @@ import { Offer } from '../../models/offer.model';
 })
 export class MapaTodosPage implements OnInit {
   offersfiltered: Offer[] = [];
-  map:Map;
+  map2:Map;
   marker1:any;
   marker2:any;
   latlong=[];
@@ -38,8 +38,8 @@ export class MapaTodosPage implements OnInit {
   }
 
   showMap() {
-    this.map = new Map('myMap').setView([36.514846075279856, -6.275898951215205], 13);
-    tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png`).addTo(this.map);
+    this.map2 = new Map('myMap2').setView([36.514846075279856, -6.275898951215205], 13);
+    tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png`).addTo(this.map2);
     this.getPositions();
   }
 
@@ -81,17 +81,17 @@ export class MapaTodosPage implements OnInit {
       const markEmpresa = [offer.restaurant.latitud, offer.restaurant.longitud];
       this.pos1 = [offer.restaurant.latitud, offer.restaurant.longitud];
       this.marker1 = marker(markEmpresa, {icon: myIconEmpresa});
-      this.marker1.addTo(this.map).bindPopup(offer.restaurant.name);
+      this.marker1.addTo(this.map2).bindPopup(offer.restaurant.name);
     });
 
     // Ponemos el marcador en la posición del dispositivo
     const markEmpresa = [36.51244570,  -6.27826263];
     this.pos2 = [36.51244570,  -6.27826263];
     this.marker2 = marker(markEmpresa, {icon: iconTuPosicion});
-    this.marker2.addTo(this.map).bindPopup('Aquí estás tú');
+    this.marker2.addTo(this.map2).bindPopup('Aquí estás tú');
 
     circle([36.51244570,  -6.27826263], (this.kms * 1000), {
       color: 'green'
-    }).addTo(this.map);
+    }).addTo(this.map2);
   }
 }
