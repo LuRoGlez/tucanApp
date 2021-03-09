@@ -10,7 +10,9 @@ import { Offer } from '../../models/offer.model';
   styleUrls: ['./mapa-todos.page.scss'],
 })
 export class MapaTodosPage implements OnInit {
-  offersfiltered: Offer[] = [];
+  offersRestfiltered: Offer[] = [];
+  offersBarfiltered: Offer[] = [];
+  offersDiscofiltered: Offer[] = [];
   map2:Map;
   marker1:any;
   marker2:any;
@@ -29,7 +31,9 @@ export class MapaTodosPage implements OnInit {
               }
               
   ionViewDidEnter(){
-    this.offersfiltered = this.restService.offersRestfiltered
+    this.offersRestfiltered = this.restService.offersRestfiltered
+    this.offersBarfiltered = this.restService.offersBarfiltered
+    this.offersDiscofiltered = this.restService.offersDiscofiltered
     this.kms = this.restService.kms;
     this.showMap();
   }
@@ -66,8 +70,26 @@ export class MapaTodosPage implements OnInit {
       shadowSize: [0, 0],
       shadowAnchor: [0, 0]
     });
-    const myIconEmpresa = icon({
-      iconUrl: 'assets/icon/marker-icon-2x.png',
+    const myIconRest = icon({
+      iconUrl: 'assets/icon/marker-icon-2a.png',
+      shadowUrl: 'assets/icon/marker-shadow.png',
+      iconSize: [32, 46],
+      iconAnchor: [32, 46],
+      popupAnchor: [-16, -41],
+      shadowSize: [0, 0],
+      shadowAnchor: [0, 0]
+    });
+    const myIconBar = icon({
+      iconUrl: 'assets/icon/marker-icon-2r.png',
+      shadowUrl: 'assets/icon/marker-shadow.png',
+      iconSize: [32, 46],
+      iconAnchor: [32, 46],
+      popupAnchor: [-16, -41],
+      shadowSize: [0, 0],
+      shadowAnchor: [0, 0]
+    });
+    const myIconDisco = icon({
+      iconUrl: 'assets/icon/marker-icon-2v.png',
       shadowUrl: 'assets/icon/marker-shadow.png',
       iconSize: [32, 46],
       iconAnchor: [32, 46],
@@ -76,12 +98,28 @@ export class MapaTodosPage implements OnInit {
       shadowAnchor: [0, 0]
     });
     
-    // Ponemos los marcadores de las empresas de las ofertas
-    this.offersfiltered.forEach((offer) => {
+    // Ponemos los marcadores de los restaurantes de las ofertas
+    this.offersRestfiltered.forEach((offer) => {
       const markEmpresa = [offer.restaurant.latitud, offer.restaurant.longitud];
       this.pos1 = [offer.restaurant.latitud, offer.restaurant.longitud];
-      this.marker1 = marker(markEmpresa, {icon: myIconEmpresa});
+      this.marker1 = marker(markEmpresa, {icon: myIconRest});
       this.marker1.addTo(this.map2).bindPopup(offer.restaurant.name);
+    });
+    
+    // Ponemos los marcadores de los Bares de las ofertas
+    this.offersBarfiltered.forEach((offer) => {
+      const markEmpresa = [offer.bar.latitud, offer.bar.longitud];
+      this.pos1 = [offer.bar.latitud, offer.bar.longitud];
+      this.marker1 = marker(markEmpresa, {icon: myIconBar});
+      this.marker1.addTo(this.map2).bindPopup(offer.bar.name);
+    });
+        
+    // Ponemos los marcadores de los discotecas de las ofertas
+    this.offersDiscofiltered.forEach((offer) => {
+      const markEmpresa = [offer.discotheque.latitud, offer.discotheque.longitud];
+      this.pos1 = [offer.discotheque.latitud, offer.discotheque.longitud];
+      this.marker1 = marker(markEmpresa, {icon: myIconDisco});
+      this.marker1.addTo(this.map2).bindPopup(offer.discotheque.name);
     });
 
     // Ponemos el marcador en la posición del dispositivo
