@@ -28,7 +28,6 @@ export class MyofertsPage implements OnInit {
     this.restService.getOfertasAsociadas(this.restService.token.success.token, this.restService.token.success.id)
     .then(data=>{
       this.offers = data.Ir;
-      console.log(this.offers);
       // this.offers.push(data.Ir.Oferta);
 
       
