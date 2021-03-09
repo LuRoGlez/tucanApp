@@ -1,6 +1,17 @@
 <app-header-offer title="Filters"></app-header-offer>
 
 <ion-content>
+  <article class="slide">
+        
+    <span>DISTANCIA MÁXIMA: {{ kms }}KMs</span>
+    <ion-range min="1"
+   max="10"
+   step="1"
+   value={{kms}}
+   (ionChange)="cambiarDistancia($event)">
+ </ion-range>
+   
+   </article>
   <ion-grid class="mtv">
     <ion-row>
       <ion-col size="6">
@@ -84,19 +95,4 @@
     </ul>
     </fieldset>
   </form>
-  <ion-list>
-    <ion-item>
-      <article class="slide">
-        
-       <span>DISTANCIA MÁXIMA: {{ kms }}KMs</span>
-       <ion-range min="1"
-      max="10"
-      step="1"
-      value={{kms}}
-      (ionChange)="cambiarDistancia($event)">
-    </ion-range>
-      
-      </article>
-    </ion-item>
-  </ion-list>
 </ion-content>
