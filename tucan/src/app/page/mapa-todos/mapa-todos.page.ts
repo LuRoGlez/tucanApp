@@ -26,10 +26,10 @@ export class MapaTodosPage implements OnInit {
   
   constructor(private geolocation: Geolocation,
               private restService: RestService) {
-    this.offersfiltered = this.restService.offersfiltered
-  }
-
+              }
+              
   ionViewDidEnter(){
+    this.offersfiltered = this.restService.offersfiltered
     this.kms = this.restService.kms;
     this.showMap();
   }
@@ -84,22 +84,14 @@ export class MapaTodosPage implements OnInit {
       this.marker1.addTo(this.map).bindPopup(offer.restaurant.name);
     });
 
-    // console.log(latlong);
     // Ponemos el marcador en la posición del dispositivo
     const markEmpresa = [36.51244570,  -6.27826263];
     this.pos2 = [36.51244570,  -6.27826263];
     this.marker2 = marker(markEmpresa, {icon: iconTuPosicion});
     this.marker2.addTo(this.map).bindPopup('Aquí estás tú');
 
-    // polyline([this.pos1, this.pos2], {
-    //   color: 'black'
-    // }).addTo(this.map);
-
     circle([36.51244570,  -6.27826263], (this.kms * 1000), {
-      color: 'red'
+      color: 'green'
     }).addTo(this.map);
-
-    // this.distancia = parseFloat(this.map.distance(this.pos1, this.pos2)).toFixed(2);
-    // console.log(this.distancia);
   }
 }
