@@ -109,16 +109,18 @@ ion-img::part(image) {
 }
 
 span{
-  color:#168534;
+  color:#24b34b;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
 }
 
 .btnmapa{
   margin-top: 50px;
-  --background: #168534;
+  --background: rgba(230, 230, 230, 0.438);
   font-family: 'Montserrat', sans-serif;
   text-transform: capitalize;
+  color: #24b34b;
+  font-weight: 600;
   
 }
 
@@ -134,9 +136,10 @@ span{
 
 .btnvoy{
   margin-top: 50px;
-  --background: #168534;
+  --background: #24b34b;
   font-family: 'Montserrat', sans-serif;
   text-transform: capitalize;
   --border-radius: 50%;
   height: 50px;
+  font-weight: 600;
 }
