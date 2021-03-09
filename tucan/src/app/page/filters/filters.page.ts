@@ -10,22 +10,22 @@ import { FormControl } from '@angular/forms';
 })
 export class FiltersPage implements OnInit {
   kms = 1;
-  chino = new FormControl('');
-  mexicano = new FormControl('');
-  asiatico = new FormControl('');
-  italiano = new FormControl('');
-  burger = new FormControl('');
-  bocatas = new FormControl('');
-  pizza = new FormControl('');
-  moderna = new FormControl('');
-  tradicional = new FormControl('');
-  kebab = new FormControl('');
-  tapas = new FormControl('');
-  chiringuito = new FormControl('');
-  sport_direct = new FormControl('');
-  music_direct = new FormControl('');
-
-
+  filtros:any = {
+    chino: false,
+    mexicao: false,
+    asiatico: false,
+    italiano: false,
+    burger: false,
+    bocatas: false,
+    pizza: false,
+    moderna: false,
+    tradicional: false,
+    kebab: false,
+    tapas: false,
+    chiringuito: false,
+    sport_direct: false,
+    music_direct: false,
+  }
 
 
   constructor(private geolocation: Geolocation,
@@ -44,9 +44,9 @@ export class FiltersPage implements OnInit {
   }
 
   formulario(){
-    this.restService.formulario(this.restService.token.success.token, this.chino.value, this.mexicano.value, 
-      this.asiatico.value, this.italiano.value, this.burger.value, this.bocatas.value, this.pizza.value, 
-      this.moderna.value, this.tradicional.value, this.kebab.value, this.tapas.value, this.chino.value, this.sport_direct.value, this.music_direct.value)
+    this.restService.formulario(this.restService.token.success.token, this.filtros.chino, this.filtros.mexicano, 
+      this.filtros.asiatico, this.filtros.italiano, this.filtros.burger, this.filtros.bocatas, this.filtros.pizza, 
+      this.filtros.moderna, this.filtros.tradicional, this.filtros.kebab, this.filtros.tapas, this.filtros.chiringuito, this.filtros.sport_direct, this.filtros.music_direct)
       .then(data=>{
         console.log(data)
       })
