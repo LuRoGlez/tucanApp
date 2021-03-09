@@ -37,8 +37,7 @@ input[type="radio"] {
     padding: 0px;
 }
 
-.Titulo{
-  font-family: sans-serif;    
+.Titulo{   
   font-size: 14px;
   font-weight: 600;
   text-transform: capitalize;
@@ -46,6 +45,7 @@ input[type="radio"] {
 }
 
 .cardcontent{
+  font-family: 'Montserrat', sans-serif;
     padding: 0px;
     margin: 2px;
     
@@ -65,7 +65,7 @@ input[type="radio"] {
   font-size: 8px;
 }
 ion-img::part(image){
-  border-radius: 5%;
+  border-radius: 10%;
   margin:0px;
   size: 100%
 }

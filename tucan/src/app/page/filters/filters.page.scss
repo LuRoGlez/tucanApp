@@ -1,11 +1,4 @@
-.filtrosForm{
-    display: flex;
-    flex-direction: column;
-    margin: 3%;
-    padding: 0;
-    border-color: rgba(0, 0, 0, 0.096);
-    
-}
+
 .range{
     width: 80%;
     margin-left: 10%;
@@ -49,9 +42,7 @@ fieldset{
       display:none
   }
 
-  li > label{
-      margin-left: 10%;
-  }
+ 
  
 
   li{
@@ -75,7 +66,8 @@ fieldset{
     --pin-background: #01641c;
 } 
 .slide{
-width: 100%;
+
+width: 90%;
 padding-top: 10px;
 }
 
@@ -86,3 +78,95 @@ padding-top: 10px;
     margin-left: 15px;
 }
 
+article{
+  font-family: 'Montserrat', sans-serif;
+}
+label{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+section{
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgba(243, 243, 243, 0.301);
+  border-radius: 5%;
+  margin: 15px;
+  padding: 10 px;
+  text-align: center;
+  
+
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1px;
+}
+li{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  margin: 1px;
+  border-radius: 25%;
+
+}
+.tipos{
+  padding:10px;
+  justify-content: space-between;
+  
+}
+form{
+  padding: 0%;
+  margin: 0%;
+}
+
+h2{
+  font-size: 15px;
+  margin: 0%;
+  font-weight: 600;
+}
+ul{
+  padding-inline-start: 0%;
+}
+
+.eventos{
+  background-color: white;
+  border-radius: 5%;
+  font-weight: 600;
+  display:flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left:30px;
+}
+
+.music{
+  margin-left: 30%;
+}
+.km{
+  font-size: 15px;
+  margin: 0%;
+  font-weight: 600;
+  color: #00a52c;
+
+}
+
+.head
+{
+    --background: #24b34b;
+}
+.logo{
+  width: 40px;
+  height: 40px;
+  margin-left: 4px;
+  margin-right: 4px;
+}

@@ -1,5 +1,6 @@
-.Titulo{
-    font-family: sans-serif;    
+
+
+.Titulo{    
     font-size: 14px;
     font-weight: 600;
     text-transform: capitalize;
@@ -7,6 +8,7 @@
 }
 
 .cardcontent{
+    font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 2px;
     width: 100%;
@@ -24,7 +26,7 @@
 }
 
 ion-img::part(image) {
-    border-radius: 5%;
+    border-radius: 10%;
     margin:0px;
     size: 100%
   }

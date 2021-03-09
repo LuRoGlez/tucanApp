@@ -1,8 +1,6 @@
-<ion-header  no-border>
+<ion-header no-border>
   <ion-toolbar class="head">
-    <ion-buttons slot="start">
-      <ion-back-button text=""></ion-back-button>
-    </ion-buttons>
+    <ion-img src="/assets/imgs/logotucan.png" slot="start" class="logo"></ion-img>
     <ion-buttons slot="end">
       <ion-menu-button autohide="false"></ion-menu-button>
     </ion-buttons>
@@ -10,84 +8,99 @@
 </ion-header>
 
 <ion-content>
-  <article class="slide">
-    <span>DISTANCIA MÁXIMA: {{ kms }}KMs</span>
+ 
+  <section>
+    <h2>Eventos</h2>
+  <ion-grid class="mtv">
+    
+        <div class="eventos">
+        <label class="music">Evento TV</label>
+        <input type="checkbox" id="tv" class="noShow">
+        <label for="tv" class="icons"><ion-icon name="tv-outline" ></ion-icon></label>
+    </div>
+      
+      
+        <div class="eventos">
+        <label class="music">Musica en directo</label>
+        <input type="checkbox" id="music" class="noShow">
+        <label for="music" class="icons"><ion-icon name="musical-notes-outline"></ion-icon></label>
+      </div>
+    
+  </ion-grid>
+  </section>
+<section class="tipos">
+<h2>Tipo de local</h2>
+<form>
+    <ul class="flex">
+      <div>
+      <li>
+        <ion-checkbox color ="success" id="chino" name="tipo" value="chino"></ion-checkbox>
+        <label for="chino">chino</label>
+      </li>
+      <li>
+        <ion-checkbox color ="success" id="mexicano" name="tipo" value="mexicano"></ion-checkbox>
+        <label for="mexicano">mexicano</label>
+      </li>
+      <li>
+        <ion-checkbox color ="success" id="asiatico" name="tipo" value="asiatico"></ion-checkbox>
+        <label for="asiatico">asiatico</label>
+      </li>
+    </div>
+    <div>
+      <li>
+        <ion-checkbox color ="success" id="italiano" name="tipo" value="italiano"></ion-checkbox>
+        <label for="italiano">italiano</label>
+      </li>
+    
+      <li>
+        <ion-checkbox color ="success" id="Hamburguesas" name="tipo" value="Hamburguesas"></ion-checkbox>
+        <label for="hamburgesas">burger</label>
+      </li>
+      <li>
+        <ion-checkbox color ="success" id="bocadillos" name="tipo" value="bocadillos">"></ion-checkbox>
+        <label for="bocadilos">Bocata</label>
+      </li>
+    </div>
+    <div>
+      <li>
+        <ion-checkbox color ="success" id="pizza" name="tipo" value="pizza"></ion-checkbox>
+        <label for="pizza">Pizza</label>
+      </li>
+      <li>
+        <ion-checkbox color ="success" id="moderna" name="tipo" value="moderna"></ion-checkbox>
+        <label for="moderna">moderna</label>
+      </li>
+    
+      <li>
+        <ion-checkbox color ="success" id="tradicional" name="tipo" value="tradicional"></ion-checkbox>
+        <label for="tradicional">tradicional</label>
+      </li>
+    </div>
+    <div>
+      <li>
+        <ion-checkbox color ="success" id="kebab" name="tipo" value="kebab"></ion-checkbox>
+        <label for="kebab">kebab</label>
+      </li>
+      <li>
+        <ion-checkbox color ="success" id="taperia" name="tipo" value="taperia"></ion-checkbox>
+        <label for="taperia">Tapas</label>
+      </li>
+      <li>
+        <ion-checkbox color ="success" id="chiringuito" name="tipo" value="chiringuito"></ion-checkbox>
+        <label for="chiringuito">Chiringuito</label>
+      </li>
+    </div>
+  </ul>
+</form>
+</section>
+
+  <section class="slide">
+    <h2>Distancia máx: <span class="km">{{ kms }}KMs</span></h2>
     <ion-range min="1"
                max="10"
                step="1"
                value={{kms}}
                (ionChange)="cambiarDistancia($event)">
     </ion-range>
-  </article>
-  <ion-grid class="mtv">
-    <ion-row>
-      <ion-col size="6">
-        <form>
-        <label>Evento TV</label><br>
-        <input type="checkbox" id="tv" class="noShow">
-        <label for="tv" class="icons"><ion-icon name="tv-outline" ></ion-icon></label>
-      </form>
-      </ion-col>
-      <ion-col size="6">
-        <label class="music">Musica en directo</label><br>
-        <input type="checkbox" id="music" class="noShow">
-        <label for="music" class="icons"><ion-icon name="musical-notes-outline"></ion-icon></label>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <form>
-    <fieldset class="filtrosForm">
-      <legend>Tipo de Restaurante</legend>
-      <ul>
-        <li>
-          <ion-checkbox color ="success" id="chino" name="tipo" value="chino"></ion-checkbox>
-          <label for="chino">Restaurante chino</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="mexicano" name="tipo" value="mexicano"></ion-checkbox>
-          <label for="mexicano">Restaurante mexicano</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="asiatico" name="tipo" value="asiatico"></ion-checkbox>
-          <label for="asiatico">Restaurante asiatico</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="italiano" name="tipo" value="italiano"></ion-checkbox>
-          <label for="italiano">Restaurante italiano</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="Hamburguesas" name="tipo" value="Hamburguesas"></ion-checkbox>
-          <label for="hamburgesas">Hamburguesas</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="bocadillos" name="tipo" value="bocadillos">"></ion-checkbox>
-          <label for="bocadilos">Bocadillos</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="pizza" name="tipo" value="pizza"></ion-checkbox>
-          <label for="pizza">Pizza</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="moderna" name="tipo" value="moderna"></ion-checkbox>
-          <label for="moderna">Cocina moderna</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="tradicional" name="tipo" value="tradicional"></ion-checkbox>
-          <label for="tradicional">Cocina tradicional</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="kebab" name="tipo" value="kebab"></ion-checkbox>
-          <label for="kebab">kebab</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="taperia" name="tipo" value="taperia"></ion-checkbox>
-          <label for="taperia">Tapería</label>
-        </li>
-        <li>
-          <ion-checkbox color ="success" id="chiringuito" name="tipo" value="chiringuito"></ion-checkbox>
-          <label for="chiringuito">Chiringuito</label>
-        </li>
-    </ul>
-    </fieldset>
-  </form>
+  </section>
 </ion-content>
