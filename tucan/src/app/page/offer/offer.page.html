@@ -20,7 +20,7 @@
             </ion-col>
         </ion-row>
         <ion-row>
-            <ion-col size="10">
+            <ion-col size="12">
                 <ion-text>
                     <h2> {{TituloOferta}}</h2>
                 </ion-text>
@@ -29,7 +29,7 @@
                 </ion-text>
                 <span *ngIf="iWIll != null">{{this.iWIll.length}} Asistentes</span>
             </ion-col>
-            <ion-col size="2">
+            <!--<ion-col size="2">
                 <form *ngIf="crearEliminar" class="eliminar">
                     <input type="checkbox" id="iWillGo" class="noShow" (click)="eliminarWillGo()">
                     <label for="iWillGo" class="iWillGo"><ion-icon name="people-circle-outline"></ion-icon></label>
@@ -38,14 +38,21 @@
                     <input type="checkbox" id="iWillGo" class="noShow" (click)="createWillGo()">
                     <label for="iWillGo" class="iWillGo"><ion-icon name="people-circle-outline"></ion-icon></label>
                 </form>       
-            </ion-col>
+            </ion-col>-->
         </ion-row>
         <div class="center">
             <ion-button class="btnmapa" (click)="irMapa()">Ver mapa</ion-button>
         </div>
+        <form *ngIf="crearEliminar == 0">
         <div class="center">
-            <ion-button class="btnvoy" (click)="irMapa()">Yo voy</ion-button>
+            <ion-button class="btnvoy" (click)="createWillGo()">¡Yo voy!</ion-button>
         </div>
+    </form>
+        <form *ngIf="crearEliminar" >
+            <div class="center">
+                <ion-button class="btnvoy" (click)="eliminarWillGo()">Yo no voy</ion-button>
+            </div>
+        </form>
 
     </ion-grid>
 </ion-content>

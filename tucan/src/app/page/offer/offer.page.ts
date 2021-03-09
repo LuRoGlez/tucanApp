@@ -26,7 +26,7 @@ export class OfferPage implements OnInit {
   @Input() derpoteDirecto: any;
   
   crearEliminar = 0;
-
+  voy = false;
   token: any;
   offer: any;
   enterprise: any;
@@ -66,10 +66,12 @@ export class OfferPage implements OnInit {
     
   createWillGo(){
     this.restService.createWillGo(this.restService.token.success.token,this.idOferta, this.restService.token.success.id);
+    this.voy=true;
   }
 
   eliminarWillGo(){
     this.restService.eliminarWIllGo(this.restService.token.success.token,this.idOferta, this.restService.token.success.id)
+    this.voy=false;
   }
 
   mostrarWillGo(){
