@@ -29,12 +29,16 @@ export class RestaurantPage implements OnInit {
               public restService: RestService,
               public router:Router) { }
                   
-  ngOnInit() { 
+  ngOnInit() {
+    if(this.mapRest) {
+      this.mapRest.remove();
+    }
     this.mapRest = new Map('myMapRest').setView([36.514846075279856, -6.275898951215205], 13);
     tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png`).addTo(this.mapRest);
   }
   
   ionViewDidEnter() {
+    this.offersfiltered=this.restService.offersRestfiltered;
     this.kms = this.restService.kms;
     this.getOffersRestaurant();
     // Ahora llamamos a la función filtrarOfertas para que aplique los filtros
@@ -42,7 +46,7 @@ export class RestaurantPage implements OnInit {
       this.restService.distanciaModificada=0;
       let pausa = setTimeout( () => {
         this.filtrarOfertas();
-      }, 600);
+      }, 175);
     // }
   }
 
@@ -87,24 +91,29 @@ export class RestaurantPage implements OnInit {
     this.router.navigate(['/mapa-todos']);
   }
 
-  filtrarOfertas() {        
-    // Obtenemos la posición del dispositivo (hacer cuando funcione en móvil)
-    
-    // Inicializamos el array
-    this.offersDistancia= [];
-    
-    // console.log(this.offersfiltered);
-    // Ponemos los marcadores de las empresas de las ofertas
-    this.offersfiltered.forEach((offer) => {
-      const markEmpresa = [offer.restaurant.latitud, offer.restaurant.longitud];
-      // Calculamos la distancia desde nuestra posición hasta la empresa
-      this.distancia = parseFloat(this.mapRest.distance(markEmpresa, this.dispositivo)).toFixed(2);
-      // console.log(this.distancia, (this.kms * 1000));
-      if (this.distancia < (this.kms * 1000)) {
-        this.offersDistancia.push(offer);
-      }
-    });
-
-    this.offersfiltered = this.offersDistancia;
+  filtrarOfertas() {
+    if (this.offersfiltered == null) {
+      this.offersfiltered = this.restService.offersRestfiltered;
+    }
+    else {
+      // Obtenemos la posición del dispositivo (hacer cuando funcione en móvil)
+      
+      // Inicializamos el array
+      this.offersDistancia= [];
+      
+      // console.log(this.offersfiltered);
+      // Ponemos los marcadores de las empresas de las ofertas
+      this.offersfiltered.forEach((offer) => {
+        const markEmpresa = [offer.restaurant.latitud, offer.restaurant.longitud];
+        // Calculamos la distancia desde nuestra posición hasta la empresa
+        this.distancia = parseFloat(this.mapRest.distance(markEmpresa, this.dispositivo)).toFixed(2);
+        // console.log(this.distancia, (this.kms * 1000));
+        if (this.distancia < (this.kms * 1000)) {
+          this.offersDistancia.push(offer);
+        }
+      });
+  
+      this.offersfiltered = this.offersDistancia;
+    }
   }
 }

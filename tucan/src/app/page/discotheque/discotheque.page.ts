@@ -42,7 +42,7 @@ export class DiscothequePage implements OnInit {
       this.restService.distanciaModificada=0;
       let pausa = setTimeout( () => {
         this.filtrarOfertas();
-      }, 600);
+      }, 175);
     // }
   }
 
@@ -89,22 +89,27 @@ export class DiscothequePage implements OnInit {
     this.router.navigate(['/mapa-todos']);
   }
 
-  filtrarOfertas() {        
-    // Obtenemos la posición del dispositivo (hacer cuando funcione en móvil)
-    
-    // Inicializamos el array
-    this.offersDistancia= [];
-    // Ponemos los marcadores de las empresas de las ofertas
-    this.offersfiltered.forEach((offer) => {
-      const markEmpresa = [offer.discotheque.latitud, offer.discotheque.longitud];
-      // Calculamos la distancia desde nuestra posición hasta la empresa
-      this.distancia = parseFloat(this.mapDiscoteca.distance(markEmpresa, this.dispositivo)).toFixed(2);
-      // console.log(this.distancia, (this.kms * 1000));
-      if (this.distancia < (this.kms * 1000)) {
-        this.offersDistancia.push(offer);
-      }
-    });
+  filtrarOfertas() {
+    if (this.offersfiltered == null) {
+      this.offersfiltered = this.restService.offersRestfiltered;
+    }
+    else {    
+      // Obtenemos la posición del dispositivo (hacer cuando funcione en móvil)
+      
+      // Inicializamos el array
+      this.offersDistancia= [];
+      // Ponemos los marcadores de las empresas de las ofertas
+      this.offersfiltered.forEach((offer) => {
+        const markEmpresa = [offer.discotheque.latitud, offer.discotheque.longitud];
+        // Calculamos la distancia desde nuestra posición hasta la empresa
+        this.distancia = parseFloat(this.mapDiscoteca.distance(markEmpresa, this.dispositivo)).toFixed(2);
+        // console.log(this.distancia, (this.kms * 1000));
+        if (this.distancia < (this.kms * 1000)) {
+          this.offersDistancia.push(offer);
+        }
+      });
 
-    this.offersfiltered = this.offersDistancia;
+      this.offersfiltered = this.offersDistancia;
+    }
   }
 }
