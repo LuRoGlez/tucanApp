@@ -103,26 +103,29 @@ export class MapaTodosPage implements OnInit {
     
     // Ponemos los marcadores de los restaurantes de las ofertas
     this.offersRestfiltered.forEach((offer) => {
+      const texto = '<b>' + offer.restaurant.name + '</b><br>' + offer.name;
       const markEmpresa = [offer.restaurant.latitud, offer.restaurant.longitud];
       this.pos1 = [offer.restaurant.latitud, offer.restaurant.longitud];
       this.marker1 = marker(markEmpresa, {icon: myIconRest});
-      this.marker1.addTo(this.map2).bindPopup(offer.restaurant.name);
+      this.marker1.addTo(this.map2).bindPopup(texto);
     });
     
     // Ponemos los marcadores de los Bares de las ofertas
     this.offersBarfiltered.forEach((offer) => {
+      const texto = '<b>' + offer.bar.name + '</b><br>' + offer.name;
       const markEmpresa = [offer.bar.latitud, offer.bar.longitud];
       this.pos1 = [offer.bar.latitud, offer.bar.longitud];
       this.marker1 = marker(markEmpresa, {icon: myIconBar});
-      this.marker1.addTo(this.map2).bindPopup(offer.bar.name);
+      this.marker1.addTo(this.map2).bindPopup(texto);
     });
         
     // Ponemos los marcadores de los discotecas de las ofertas
     this.offersDiscofiltered.forEach((offer) => {
+      const texto = '<b>' + offer.discotheque.name + '</b><br>' + offer.name;
       const markEmpresa = [offer.discotheque.latitud, offer.discotheque.longitud];
       this.pos1 = [offer.discotheque.latitud, offer.discotheque.longitud];
       this.marker1 = marker(markEmpresa, {icon: myIconDisco});
-      this.marker1.addTo(this.map2).bindPopup(offer.discotheque.name);
+      this.marker1.addTo(this.map2).bindPopup(texto);
     });
 
     // Ponemos el marcador en la posición del dispositivo
