@@ -56,7 +56,7 @@ export class MapaPage implements OnInit {
 
   showMarker(latlong) {
     const myIconEmpresa = icon({
-      iconUrl: 'assets/icon/marker-icon-2x.png',
+      iconUrl: 'assets/icon/marker-icon-2v.png',
       shadowUrl: 'assets/icon/marker-shadow.png',
       iconSize: [32, 46],
       iconAnchor: [32, 46],
