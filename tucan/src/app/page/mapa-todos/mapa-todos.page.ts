@@ -42,6 +42,9 @@ export class MapaTodosPage implements OnInit {
   }
 
   showMap() {
+    if(this.map2) {
+      this.map2.remove();
+    }
     this.map2 = new Map('myMap2').setView([36.514846075279856, -6.275898951215205], 13);
     tileLayer(`https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png`).addTo(this.map2);
     this.getPositions();

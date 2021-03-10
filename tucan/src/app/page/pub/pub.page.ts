@@ -93,13 +93,13 @@ export class PubPage implements OnInit {
     // Inicializamos el array
     this.offersDistancia= [];
     
-    console.log(this.offersfiltered);
+    // console.log(this.offersfiltered);
     // Ponemos los marcadores de las empresas de las ofertas
     this.offersfiltered.forEach((offer) => {
       const markEmpresa = [offer.bar.latitud, offer.bar.longitud];
       // Calculamos la distancia desde nuestra posición hasta la empresa
       this.distancia = parseFloat(this.mapBar.distance(markEmpresa, this.dispositivo)).toFixed(2);
-      console.log(this.distancia, (this.kms * 1000)); 
+      // console.log(this.distancia, (this.kms * 1000)); 
       if (this.distancia < (this.kms * 1000)) {
         this.offersDistancia.push(offer);
       }

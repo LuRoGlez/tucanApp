@@ -48,7 +48,7 @@ export class FiltersPage implements OnInit {
       this.filtros.asiatico, this.filtros.italiano, this.filtros.burger, this.filtros.bocatas, this.filtros.pizza, 
       this.filtros.moderna, this.filtros.tradicional, this.filtros.kebab, this.filtros.tapas, this.filtros.chiringuito, this.filtros.sport_direct, this.filtros.music_direct)
       .then(data=>{
-        console.log(data)
+        // console.log(data)
       })
   }
 }

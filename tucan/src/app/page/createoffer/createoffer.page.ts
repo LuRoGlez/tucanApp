@@ -32,7 +32,7 @@ export class CreateofferPage implements OnInit {
 
   ionViewWillEnter(){
     this.token = this.restService.token.success;
-    console.log(this.token)
+    // console.log(this.token)
     this.getEmpresa()
   }
 
@@ -98,7 +98,7 @@ export class CreateofferPage implements OnInit {
       for(let i = 0; i < this.empresas.length ; i++){
           if(this.token.id == this.empresas[i].own){
             this.empresa = this.empresas[i]; 
-            console.log(this.empresa)
+            // console.log(this.empresa)
           }
         }
         

@@ -53,7 +53,7 @@ export class MyofertsPage implements OnInit {
   valorar(idOferta, value){
     this.restService.valorar(this.restService.token.success.token, idOferta, this.restService.token.success.id, value)
     .then(data=>{
-      console.log(data)
+      // console.log(data)
       this.actualizarValoracion(idOferta);
     })
   }
@@ -73,7 +73,7 @@ export class MyofertsPage implements OnInit {
       value = value / contador;
       this.restService.estrellasOferta(this.restService.token.success.token, idOferta, value)
       .then(data=>{
-        console.log(data)
+        // console.log(data)
       })
     })
   }

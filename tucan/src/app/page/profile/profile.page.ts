@@ -86,7 +86,7 @@ export class ProfilePage implements OnInit {
       this.localidadEmpresa.value, this.tipoEmpresa.value, this.subTipoEmpresa.value, 'logorestaurante.jpg', this.token.id,
       this.latitudEmpresa, this.longitudEmpresa)
       .then(data=>{
-        console.log(data);
+        // console.log(data);
         this.empresa = data
     })
     this.actualizarVip();
@@ -134,7 +134,7 @@ export class ProfilePage implements OnInit {
           resolve(data);
         }
       }, err => {
-        console.log(err);
+        // console.log(err);
       });
     });
   }

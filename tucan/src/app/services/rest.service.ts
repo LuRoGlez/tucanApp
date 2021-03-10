@@ -33,7 +33,7 @@ export class RestService {
           this.token = data;
           resolve(data);
         }, err => {
-          console.log(err);
+          // console.log(err);
         });
     });
   }
@@ -51,7 +51,7 @@ export class RestService {
           this.token = data;
           resolve(data);
         }, err => {
-          console.log(err);
+          // console.log(err);
         });
     });
   }
@@ -64,7 +64,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        // console.log(err);
       });
     });
   }
@@ -77,7 +77,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        // console.log(err);
       });
     });
   }
@@ -90,7 +90,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        // console.log(err);
       });
     });
   }
@@ -103,7 +103,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        // console.log(err);
       });
     });
   }
@@ -120,7 +120,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        // console.log(err);
       });
     });
   }
@@ -134,7 +134,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        // console.log(err);
       });
     });
   }
@@ -147,7 +147,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        //console.log(err);
       });
     });
   }
@@ -160,7 +160,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        //console.log(err);
       });
     });
   }
@@ -189,7 +189,7 @@ export class RestService {
         .subscribe(data => {
           resolve(data);
         }, err => {
-          console.log(err);
+          //console.log(err);
         });
     });
   }
@@ -214,7 +214,7 @@ export class RestService {
         .subscribe(data => {
           resolve(data);
         }, err => {
-          console.log(err);
+          //console.log(err);
         });
     });
   }
@@ -233,7 +233,7 @@ export class RestService {
         .subscribe(data => {
           resolve(data);
         }, err => {
-          console.log(err);
+          //console.log(err);
         });
     });
   }
@@ -246,7 +246,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        //console.log(err);
       });
     });
   }
@@ -259,7 +259,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        //console.log(err);
       });
     });
   }
@@ -272,7 +272,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        //console.log(err);
       });
     });
   }
@@ -289,7 +289,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        //console.log(err);
       });
     });
   }
@@ -306,7 +306,7 @@ export class RestService {
       .subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        //console.log(err);
       });
     });
   }
@@ -320,7 +320,7 @@ export class RestService {
         // console.log('Servicio (data): ', data);
         resolve(data);
       }, err => {
-        console.log(err);
+        //console.log(err);
       });
     });
   }
@@ -351,7 +351,7 @@ export class RestService {
         .subscribe(data => {
           resolve(data);
         }, err => {
-          console.log(err);
+          //console.log(err);
         });
     });
   }

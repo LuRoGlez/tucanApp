@@ -73,7 +73,7 @@ export class DiscothequePage implements OnInit {
         this.offersfiltered = data.Ofertas.filter((offer) => {
           return (offer.discotheque != null);
         });
-        console.log(this.offersfiltered);
+        // console.log(this.offersfiltered);
       });
     }
   }
@@ -84,7 +84,7 @@ export class DiscothequePage implements OnInit {
   }
   
   mostrarOfertasMapa() {
-    console.log('1');
+    // console.log('1');
     this.restService.offersDiscofiltered = this.offersfiltered;
     this.router.navigate(['/mapa-todos']);
   }
@@ -99,7 +99,7 @@ export class DiscothequePage implements OnInit {
       const markEmpresa = [offer.discotheque.latitud, offer.discotheque.longitud];
       // Calculamos la distancia desde nuestra posición hasta la empresa
       this.distancia = parseFloat(this.mapDiscoteca.distance(markEmpresa, this.dispositivo)).toFixed(2);
-      console.log(this.distancia, (this.kms * 1000));
+      // console.log(this.distancia, (this.kms * 1000));
       if (this.distancia < (this.kms * 1000)) {
         this.offersDistancia.push(offer);
       }
